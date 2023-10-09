@@ -2,156 +2,160 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="Shortcut Icon" type="image/ico" href="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <link rel="Shortcut Icon" type="image/ico" href="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MedStats</title>
+  <title>MedStats</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
+  <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
 
 </head>
 
 <body>
-    <!-- NavBar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
-            <img src="./logo.jpg" alt="" width="130px">
-        </a>
-    </nav>
+  <!-- NavBar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
+      <img src="./logo.jpg" alt="" width="130px">
+    </a>
+    <a class="navbar-brand mb-1 nav-heading" href="/login.html" style="font-size: 16px;">
+      Login
+    </a>
+  </nav>
 
-    <!-- Section for Adding Health Records -->
-    <div class="container pt-4 mt-5 my-3">
-        <br>
-        <p style="font-size:30px;" class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
-        <hr>
+  <!-- Section for Adding Health Records -->
+  <div class="container pt-4 mt-5 my-3">
+    <br>
+    <p style="font-size:30px;" class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
+    <hr>
 
-        <form id="MedicalForm">
-            <div class="form-group row">
-                <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-                <div class="col-sm-10 position-relative">
-                    <input type="text" class="form-control" id="Symptoms" placeholder="Symptoms">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="Medications" placeholder="Medications">
-                </div>
-            </div>
-
-            <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #b40c57;" id="add-record-btn">Add Your Record</button>
-        </form>
-    </div>
-
-    <!-- Section for Progress Bar -->
-    
-  
-
-    <div>
-        <section style="background-color: #85365e; padding: 5%; margin-bottom: 0;">
-            <h2 style="color: white;">Check your progress</h2>
-          
-            <ol class="progress-bar">
-              <li class="is-good"><span>Excellent</br><span>July/9/2023</span></span>
-                </li>  
-              <li class="is-good"><span>Healthy</br><span>August/12/2023</span></span></li>  
-              <li class="is-fair"><span>Fair</br><span>Sep/8/2023</span></span></li>
-              <li class="is-poor"><span>Poor</br><span>Sep/15/2023</span></span></li>  
-              <li class="is-improving"><span>Improving</br><span>Sep/30/2023</span></span></li>
-              <li class="is-stable"><span>Stable</br><span>Oct/3/2023</span></span></li>
-              <li class="is-active"><span>Healthy
-                </br><span>[Today]</span></span>
-                </li>  
-              <li><span></span></li>
-              <li><span></span></li>
-              <li><span></span></li>  
-            </ol>
-          </section>
-          
-    </div>
-    <div class="record-container">
-        <div class="record">
-          <div class="record-header">
-            <h5 class="record-date">[Date]</h5>
-          </div>
-          <div class="record-body">
-            <h4 class="record-section-title">Symptoms</h4>
-            <ul class="record-list">
-              <li>number #1</li>
-              <li>number #2</li>
-            </ul>
-            <h4 class="record-section-title">Medications</h4>
-            <ul class="record-list">
-              <li>number #1</li>
-              <li>number #2</li>
-            </ul>
-          </div>
-          <div class="record-footer">
-            <h4 class="record-status">Status: Poor</h4>
-          </div>
+    <form id="MedicalForm">
+      <div class="form-group row">
+        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
+        <div class="col-sm-10 position-relative">
+          <input type="text" class="form-control" id="Symptoms" placeholder="Symptoms">
         </div>
-        <div class="record">
-            <div class="record-header">
-              <h5 class="record-date">[Date]</h5>
-            </div>
-            <div class="record-body">
-              <h4 class="record-section-title">Symptoms</h4>
-              <ul class="record-list">
-                <li>number #1</li>
-                <li>number #2</li>
-              </ul>
-              <h4 class="record-section-title">Medications</h4>
-              <ul class="record-list">
-                <li>number #1</li>
-                <li>number #2</li>
-              </ul>
-            </div>
-            <div class="record-footer">
-              <h4 class="record-status">Status: Poor</h4>
-            </div>
-          </div>
-          <div class="record">
-            <div class="record-header">
-              <h5 class="record-date">[Date]</h5>
-            </div>
-            <div class="record-body">
-              <h4 class="record-section-title">Symptoms</h4>
-              <ul class="record-list">
-                <li>number #1</li>
-                <li>number #2</li>
-              </ul>
-              <h4 class="record-section-title">Medications</h4>
-              <ul class="record-list">
-                <li>number #1</li>
-                <li>number #2</li>
-              </ul>
-            </div>
-            <div class="record-footer">
-              <h4 class="record-status">Status: Poor</h4>
-            </div>
-          </div>
-        <!-- Repeat the above code for each recorded note -->
       </div>
-      <footer>
-        <p class="text-center">
-          Made by Kiran Amin Panjwani <br>
-          This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
-        </p>        
-      </footer>
 
-<script>
+      <div class="form-group row">
+        <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="Medications" placeholder="Medications">
+        </div>
+      </div>
+
+      <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
+        id="add-record-btn">Add Your Record</button>
+    </form>
+  </div>
+
+  <!-- Section for Progress Bar -->
+
+
+
+  <div>
+    <section style="background-color: #85365e; padding: 5%; margin-bottom: 0;">
+      <h2 style="color: white;">Check your progress</h2>
+
+      <ol class="progress-bar">
+        <li class="is-good"><span>Excellent</br><span>July/9/2023</span></span>
+        </li>
+        <li class="is-good"><span>Healthy</br><span>August/12/2023</span></span></li>
+        <li class="is-fair"><span>Fair</br><span>Sep/8/2023</span></span></li>
+        <li class="is-poor"><span>Poor</br><span>Sep/15/2023</span></span></li>
+        <li class="is-improving"><span>Improving</br><span>Sep/30/2023</span></span></li>
+        <li class="is-stable"><span>Stable</br><span>Oct/3/2023</span></span></li>
+        <li class="is-active"><span>Healthy
+            </br><span>[Today]</span></span>
+        </li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ol>
+    </section>
+
+  </div>
+  <div class="record-container">
+    <div class="record">
+      <div class="record-header">
+        <h5 class="record-date">[Date]</h5>
+      </div>
+      <div class="record-body">
+        <h4 class="record-section-title">Symptoms</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+        <h4 class="record-section-title">Medications</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+      </div>
+      <div class="record-footer">
+        <h4 class="record-status">Status: Poor</h4>
+      </div>
+    </div>
+    <div class="record">
+      <div class="record-header">
+        <h5 class="record-date">[Date]</h5>
+      </div>
+      <div class="record-body">
+        <h4 class="record-section-title">Symptoms</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+        <h4 class="record-section-title">Medications</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+      </div>
+      <div class="record-footer">
+        <h4 class="record-status">Status: Poor</h4>
+      </div>
+    </div>
+    <div class="record">
+      <div class="record-header">
+        <h5 class="record-date">[Date]</h5>
+      </div>
+      <div class="record-body">
+        <h4 class="record-section-title">Symptoms</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+        <h4 class="record-section-title">Medications</h4>
+        <ul class="record-list">
+          <li>number #1</li>
+          <li>number #2</li>
+        </ul>
+      </div>
+      <div class="record-footer">
+        <h4 class="record-status">Status: Poor</h4>
+      </div>
+    </div>
+    <!-- Repeat the above code for each recorded note -->
+  </div>
+  <footer>
+    <p class="text-center">
+      Made by Kiran Amin Panjwani <br>
+      This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
+    </p>
+  </footer>
+
+  <script>
     const addRecordBtn = document.getElementById("add-record-btn");
 
-addRecordBtn.addEventListener("click", function() {
-  alert("Please login inorder to save add your records to your personal journal");
-});
-</script>    
+    addRecordBtn.addEventListener("click", function () {
+      alert("Please login inorder to save add your records to your personal journal");
+    });
+  </script>
 </body>
 
 </html>
