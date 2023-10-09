@@ -49,7 +49,7 @@ MedStats is an innovative Open Source Website constructed with HTML, CSS, JavaSc
 
 These features collectively form a robust platform, enhancing the user's ability to manage and monitor their health effectively.
 
-### Visit the website: [MedStats]()
+### Visit the website: [MedStats](https://medstats-health-journal.netlify.app/)
 
 # 📌 Tech Stack
 
