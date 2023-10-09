@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="Shortcut Icon" type="image/ico" href="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MedStats</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
+
+</head>
+
+<body>
+  <!-- NavBar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
+      <img src="./logo.jpg" alt="" width="130px">
+    </a>
+    <a class="navbar-brand ml-auto mb-1 nav-heading" href="/login.html" style="font-size: 16px;">
+      Login
+    </a>
+
+  </nav>
+
+  <div class="container pt-4 my-5">
+    <br>
+    <p style="font-size:30px;" class="text-center" id="subHead1"><b>Login into your account</b></p>
+    <hr>
+    <form id="MedicalForm">
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10 position-relative">
+          <input type="text" class="form-control" id="username" placeholder="Username">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="Password" class="col-sm-2  col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+      </div>
+
+      <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
+        id="add-record-btn">Login</button>
+    </form>
+
+  </div>
+
+  </div>
+  <footer>
+    <p class="text-center">
+      Made by Kiran Amin Panjwani <br>
+      This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
+    </p>
+  </footer>
+
+  <script>
+    const addRecordBtn = document.getElementById("add-record-btn");
+
+    addRecordBtn.addEventListener("click", function () {
+      alert("Please login inorder to save add your records to your personal journal");
+    });
+  </script>
+</body>
+
+</html>
