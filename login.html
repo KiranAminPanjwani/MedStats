@@ -14,6 +14,15 @@
 
   <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
 
+  <style>
+    /* Custom CSS to style the "Forgot password?" link */
+    #forgot-password-link {
+      color: #b40c57;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -25,14 +34,13 @@
     <a class="navbar-brand ml-auto mb-1 nav-heading" href="/login.html" style="font-size: 16px;">
       Login
     </a>
-
   </nav>
 
   <div class="container pt-4 my-5">
     <br>
     <p style="font-size:30px;" class="text-center" id="subHead1"><b>Login into your account</b></p>
     <hr>
-    <form id="MedicalForm">
+    <form id="MedicalForm" action="signup.html" method="get">
       <div class="form-group row">
         <label for="username" class="col-sm-2 col-form-label">Username</label>
         <div class="col-sm-10 position-relative">
@@ -47,25 +55,35 @@
         </div>
       </div>
 
-      <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
-        id="add-record-btn">Login</button>
+      <a href="#" id="forgot-password-link">Forgot password?</a>
+
+      <button type="submit" class="btn text-light btn-large btn-block mt-3" style="background-color: #b40c57;">
+        Login
+      </button>
     </form>
 
-  </div>
+    <form action="signin.html">
+      <button type="submit" class="btn text-light btn-large btn-block mt-3" style="background-color: #b40c57;">
+        Sign Up
+      </button>
+    </form>
+</div>
 
-  </div>
+
   <footer>
     <p class="text-center">
       Made by Kiran Amin Panjwani <br>
-      This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
+      This Project is participating in Hacktoberfest. Copyright © 2023.<br><br>
     </p>
   </footer>
 
   <script>
+
+
     const addRecordBtn = document.getElementById("add-record-btn");
 
     addRecordBtn.addEventListener("click", function () {
-      alert("Please login inorder to save add your records to your personal journal");
+      alert("Please login in order to save and add your records to your personal journal.");
     });
   </script>
 </body>
