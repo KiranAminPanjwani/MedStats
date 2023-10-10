@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
 
@@ -177,6 +178,13 @@
     </div>
     <!-- Repeat the above code for each recorded note -->
   </div>
+
+  <!-- Scroll to top button start -->
+  <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">
+    <i class="icon-chevron-up"></i>
+  </button>
+  <!-- end -->
+
   <footer>
     <p class="text-center">
       Made by Kiran Amin Panjwani <br>
@@ -184,14 +192,12 @@
     </p>
   </footer>
 
-  <script>
-
-      <footer>
+      <!-- <footer>
         <p class="text-center1">
           Made by Kiran Amin Panjwani <br>
           This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
         </p>        
-      </footer>
+      </footer> -->
 
 <script>
 
@@ -200,6 +206,22 @@
     addRecordBtn.addEventListener("click", function () {
       alert("Please login inorder to save add your records to your personal journal");
     });
+
+    // Function to scroll to the top of the website
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    window.onscroll = function() {
+      scrollFunction();
+    };
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("backToTopBtn").style.display = "block";
+      } else {
+        document.getElementById("backToTopBtn").style.display = "none";
+      }
+    }
   </script>
 </body>
 
