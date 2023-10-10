@@ -289,7 +289,7 @@ body {
 .record-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
   background-color: #f8f9fa;
 }
@@ -297,13 +297,15 @@ body {
 .record {
   display: flex;
   flex-direction: column;
-  width: calc(33.33% - 20px);
+  width: 30%;
+  min-width: 20rem;
   margin-bottom: 20px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
 }
+
 .record:hover{
   .record-header,.record-footer{
     background-color: rgb(187, 185, 185);
@@ -357,6 +359,7 @@ transform: scale(1.05);
   color: #dc3545;
 }
 
+
 /* Footer styles */
 footer {
   background-color: #333; /* Background color */
@@ -381,3 +384,14 @@ footer p {
   margin: 0;
   line-height: 1.5;
 }
+
+@media screen and (max-width: 700px) {
+  .record-container{
+    gap: 1.5rem;
+  }
+  .record{
+    width: 80%;
+    margin: auto;
+  }
+}
+
