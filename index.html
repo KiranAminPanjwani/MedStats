@@ -41,23 +41,30 @@
         <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
         <hr>
 
-        <form id="MedicalForm">
-            <div class="form-group row">
-                <label id="sym" for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-                <div class="col-sm-10 position-relative">
-                    <input type="text" class="form-control" id="Symptoms" placeholder="Symptoms">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label id="med" for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="Medications" placeholder="Medications">
-                </div>
-            </div>
-
-            <button type="submit" class="btn text-light btn-large btn-block" style="background-color: #b40c57;" id="add-record-btn">Add Your Record</button>
-        </form>
+       <!-- Modify your form to include unique IDs for input fields -->
+       <form id="MedicalForm">
+        <div class="form-group row">
+          <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
+          <div class="col-sm-10 position-relative">
+              <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
+          <div class="col-sm-10 position-relative">
+              <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
+          </div>
+        </div>
+        <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;" id="add-record-btn">Add Your Record</button>
+      </form>
+      
+      
     </div>
 
   <!-- Section for Progress Bar -->
@@ -85,92 +92,98 @@
 
   </div>
   <div class="record-container">
-    <div class="record">
-      <div class="record-header">
-        <h5 class="record-date">[Date]</h5>
-      </div>
-      <div class="record-body">
-        <h4 class="record-section-title">Symptoms</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-        <h4 class="record-section-title">Medications</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-      </div>
-      <div class="record-footer">
-        <h4 class="record-status">Status: Poor</h4>
-      </div>
-    </div>
-    <div class="record">
-      <div class="record-header">
-        <h5 class="record-date">[Date]</h5>
-      </div>
-      <div class="record-body">
-        <h4 class="record-section-title">Symptoms</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-        <h4 class="record-section-title">Medications</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-      </div>
-      <div class="record-footer">
-        <h4 class="record-status">Status: Poor</h4>
-      </div>
-    </div>
-    <div class="record">
-      <div class="record-header">
-        <h5 class="record-date">[Date]</h5>
-      </div>
-      <div class="record-body">
-        <h4 class="record-section-title">Symptoms</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-        <h4 class="record-section-title">Medications</h4>
-        <ul class="record-list">
-          <li>number #1</li>
-          <li>number #2</li>
-        </ul>
-      </div>
-      <div class="record-footer">
-        <h4 class="record-status">Status: Poor</h4>
-      </div>
-    </div>
+    <!-- dont remove this div -->
     <!-- Repeat the above code for each recorded note -->
   </div>
+
+
+  <!-- dynamic data code -->
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    // Static data
+    var staticPatientName = "Patient Name";
+    var staticSymptoms = "Static Symptoms";
+    var staticMedications = "Static Medications";
+    var staticStatus = "Static Status: Excellent"; // You can customize the status as needed
+
+    // Create a record element for the static data
+    var staticRecordElement = document.createElement("div");
+    staticRecordElement.className = "record";
+    staticRecordElement.innerHTML = `
+        <div class="record-header">
+            <h5 class="record-date">[Static Date]</h5>
+        </div>
+        <div class="record-body">
+            <h4 class="record-section-title">Patient: ${staticPatientName}</h4>
+            <h4 class="record-section-title">Symptoms</h4>
+            <ul class="record-list">
+                <li>${staticSymptoms}</li>
+            </ul>
+            <h4 class="record-section-title">Medications</h4>
+            <ul class="record-list">
+                <li>${staticMedications}</li>
+            </ul>
+        </div>
+        <div class="record-footer">
+            <h4 class="record-status">${staticStatus}</h4>
+        </div>
+    `;
+
+    // Append the static record to the record container
+    document.querySelector(".record-container").appendChild(staticRecordElement);
+
+    // Event listener for adding dynamic records
+    document.getElementById("add-record-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        // Get values from the form
+        var patientName = document.getElementById("PatientNameInput").value;
+        var symptoms = document.getElementById("SymptomsInput").value;
+        var medications = document.getElementById("MedicationsInput").value;
+        var currentDate = new Date().toLocaleDateString();
+
+        // Create a new record element with the entered details
+        var recordElement = document.createElement("div");
+        recordElement.className = "record";
+        recordElement.innerHTML = `
+            <div class="record-header">
+                <h5 class="record-date">${currentDate}</h5>
+            </div>
+            <div class="record-body">
+                <h4 class="record-section-title">Patient: ${patientName}</h4>
+                <h4 class="record-section-title">Symptoms</h4>
+                <ul class="record-list">
+                    <li>${symptoms}</li>
+                </ul>
+                <h4 class="record-section-title">Medications</h4>
+                <ul class="record-list">
+                    <li>${medications}</li>
+                </ul>
+            </div>
+            <div class="record-footer">
+                <h4 class="record-status">Status: Poor</h4>
+            </div>
+        `;
+
+        // Append the new record to the record container
+        document.querySelector(".record-container").appendChild(recordElement);
+
+        // Clear the form fields after adding the record
+        document.getElementById("PatientNameInput").value = "";
+        document.getElementById("SymptomsInput").value = "";
+        document.getElementById("MedicationsInput").value = "";
+    });
+  });
+</script>
+
   <footer>
-    <p class="text-center">
+    <p class="text-center"> 
       Made by Kiran Amin Panjwani <br>
       This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
     </p>
   </footer>
 
-  <script>
 
-      <footer>
-        <p class="text-center1">
-          Made by Kiran Amin Panjwani <br>
-          This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
-        </p>        
-      </footer>
-
-<script>
-
-    const addRecordBtn = document.getElementById("add-record-btn");
-
-    addRecordBtn.addEventListener("click", function () {
-      alert("Please login inorder to save add your records to your personal journal");
-    });
-  </script>
 </body>
 
 </html>
