@@ -356,3 +356,28 @@ transform: scale(1.05);
   font-weight: 600;
   color: #dc3545;
 }
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Padding for top and bottom */
+  text-align: center; /* Center-align text */
+  font-size: 14px; /* Font size */
+}
+
+footer a {
+  color: #b40c57; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+footer a:hover {
+  color: #fff; /* Change link color on hover */
+}
+
+/* Center the text vertically */
+footer p {
+  margin: 0;
+  line-height: 1.5;
+}
