@@ -290,7 +290,7 @@ body {
 .record-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
   background-color: #f8f9fa;
 }
@@ -298,13 +298,15 @@ body {
 .record {
   display: flex;
   flex-direction: column;
-  width: calc(33.33% - 20px);
+  width: 30%;
+  min-width: 20rem;
   margin-bottom: 20px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
 }
+
 .record:hover{
   .record-header,.record-footer{
     background-color: rgb(187, 185, 185);
@@ -357,3 +359,40 @@ transform: scale(1.05);
   font-weight: 600;
   color: #dc3545;
 }
+
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Padding for top and bottom */
+  text-align: center; /* Center-align text */
+  font-size: 14px; /* Font size */
+}
+
+footer a {
+  color: #b40c57; /* Link color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+footer a:hover {
+  color: #fff; /* Change link color on hover */
+}
+
+/* Center the text vertically */
+footer p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 700px) {
+  .record-container{
+    gap: 1.5rem;
+  }
+  .record{
+    width: 80%;
+    margin: auto;
+  }
+}
+
