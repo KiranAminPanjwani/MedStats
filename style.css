@@ -31,6 +31,10 @@
   justify-content: space-between;
 }
 
+#navbar a{
+  margin-left: 5%;
+}
+
 #navbar ul{
   width: auto;
   list-style-type: none;
@@ -39,7 +43,7 @@
   gap: 35px;
   flex-wrap: wrap;
   padding-top: 10px;
-  margin-right: 20px;
+  margin-right: 5%;
 
 }
 
