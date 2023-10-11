@@ -99,6 +99,7 @@ section {
   min-width: 0;
   text-align: center;
   border-bottom: 2px solid var(--color-gray-disabled);
+  cursor : pointer;
 }
 .progress-bar li:first-child,
 .progress-bar li:last-child {
