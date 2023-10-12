@@ -332,6 +332,27 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
+  position: relative;
+}
+.icons{
+  display: flex;
+}
+#edit{
+margin-left: 345px;
+position: absolute;
+margin-top: -40px;
+border-radius: 90px;
+background-color: white;
+border-color: white;
+}
+
+#close{
+  margin-left: 383px;
+  position: absolute;
+  margin-top: -40px;
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
 }
 
 .record:hover{

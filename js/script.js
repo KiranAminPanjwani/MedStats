@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
   staticRecordElement.innerHTML = `
     <div class="record-header">
         <h5 class="record-date">[Static Date]</h5>
+        <div class="icons">
+        <button id="edit">✏️</button>
+        <button id="close">❌</button>
+      </div>
     </div>
     <div class="record-body">
         <h4 class="record-section-title">Patient: ${staticPatientName}</h4>
@@ -53,9 +57,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Create a new record element with the entered details
       var recordElement = document.createElement("div");
       recordElement.className = "record";
+      var recordId = Date.now();
+      recordElement.setAttribute("data-record-id", recordId); 
       recordElement.innerHTML = `
         <div class="record-header">
             <h5 class="record-date">${currentDate}</h5>
+        <div class="icons">
+          <button id="edit">✏️</button>
+          <button id="close">❌</button>
+        </div>
         </div>
         <div class="record-body">
             <h4 class="record-section-title">Patient: ${patientName}</h4>
@@ -73,6 +83,17 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
     }
+
+     const closeButton = recordElement.querySelector("#close");
+  closeButton.addEventListener("click", function () {
+    // Get the unique record identifier associated with the button
+    const recordId = recordElement.getAttribute("data-record-id");
+    // Find the record element with the matching identifier and remove it
+    const recordToDelete = document.querySelector(`[data-record-id="${recordId}"]`);
+    if (recordToDelete) {
+      document.querySelector(".record-container").removeChild(recordToDelete);
+    }
+  });
 
     // Append the new record to the record container
     document.querySelector(".record-container").appendChild(recordElement);
