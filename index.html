@@ -6,13 +6,13 @@
   <link rel="Shortcut Icon" type="image/ico" href="images/favicon.svg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
 
   <title>MedStats</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="style.css"> <!-- Your custom CSS file -->
 
@@ -35,45 +35,46 @@
   </nav>
 
   <!-- navbar navbar-expand-lg navbar-dark fixed-top -->
-    <!-- NavBar -->
-    <!-- <nav id="navbar" class="">
+  <!-- NavBar -->
+  <!-- <nav id="navbar" class="">
         <a class="navbar-brand mb-1 nav-heading" href="#" style="font-size: 28px;">
             <img src="./logo.jpg" alt="" width="130px">
         </a>
         
     </nav> -->
 
-    <!-- Section for Adding Health Records -->
-    <div class="container pt-4 mt-5 my-3">
-        <br>
-        <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
-        <hr>
+  <!-- Section for Adding Health Records -->
+  <div class="container pt-4 mt-5 my-3">
+    <br>
+    <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
+    <hr>
 
-       <!-- Modify your form to include unique IDs for input fields -->
-       <form id="MedicalForm">
-        <div class="form-group row">
-          <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
-          <div class="col-sm-10 position-relative">
-              <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
-          </div>
+    <!-- Modify your form to include unique IDs for input fields -->
+    <form id="MedicalForm">
+      <div class="form-group row">
+        <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
+        <div class="col-sm-10 position-relative">
+          <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
         </div>
-        <div class="form-group row">
-          <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-          <div class="col-sm-10 position-relative">
-              <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
-          </div>
+      </div>
+      <div class="form-group row">
+        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
+        <div class="col-sm-10 position-relative">
+          <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
         </div>
-        <div class="form-group row">
-          <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-          <div class="col-sm-10">
-              <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
-          </div>
+      </div>
+      <div class="form-group row">
+        <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
         </div>
-        <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;" id="add-record-btn">Add Your Record</button>
-      </form>
-      
-      
-    </div>
+      </div>
+      <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
+        id="add-record-btn">Add Your Record</button>
+    </form>
+
+
+  </div>
 
   <!-- Section for Progress Bar -->
 
@@ -107,17 +108,17 @@
 
   <!-- dynamic data code -->
   <script>
-      document.addEventListener("DOMContentLoaded", function() {
-    // Static data
-    var staticPatientName = "Patient Name";
-    var staticSymptoms = "Static Symptoms";
-    var staticMedications = "Static Medications";
-    var staticStatus = "Static Status: Excellent"; // You can customize the status as needed
+    document.addEventListener("DOMContentLoaded", function () {
+      // Static data
+      var staticPatientName = "Patient Name";
+      var staticSymptoms = "Static Symptoms";
+      var staticMedications = "Static Medications";
+      var staticStatus = "Static Status: Excellent"; // You can customize the status as needed
 
-    // Create a record element for the static data
-    var staticRecordElement = document.createElement("div");
-    staticRecordElement.className = "record";
-    staticRecordElement.innerHTML = `
+      // Create a record element for the static data
+      var staticRecordElement = document.createElement("div");
+      staticRecordElement.className = "record";
+      staticRecordElement.innerHTML = `
         <div class="record-header">
             <h5 class="record-date">[Static Date]</h5>
         </div>
@@ -137,11 +138,11 @@
         </div>
     `;
 
-    // Append the static record to the record container
-    document.querySelector(".record-container").appendChild(staticRecordElement);
+      // Append the static record to the record container
+      document.querySelector(".record-container").appendChild(staticRecordElement);
 
-    // Event listener for adding dynamic records
-    document.getElementById("add-record-btn").addEventListener("click", function(event) {
+      // Event listener for adding dynamic records
+      document.getElementById("add-record-btn").addEventListener("click", function (event) {
         event.preventDefault();
 
         // Get values from the form
@@ -149,11 +150,14 @@
         var symptoms = document.getElementById("SymptomsInput").value;
         var medications = document.getElementById("MedicationsInput").value;
         var currentDate = new Date().toLocaleDateString();
-
-        // Create a new record element with the entered details
-        var recordElement = document.createElement("div");
-        recordElement.className = "record";
-        recordElement.innerHTML = `
+        if (!patientName || !symptoms || !medications) { 
+        alert("Please enter all valid details asked")
+      }
+        else {
+          // Create a new record element with the entered details
+          var recordElement = document.createElement("div");
+          recordElement.className = "record";
+          recordElement.innerHTML = `
             <div class="record-header">
                 <h5 class="record-date">${currentDate}</h5>
             </div>
@@ -172,20 +176,21 @@
                 <h4 class="record-status">Status: Poor</h4>
             </div>
         `;
+        }
 
         // Append the new record to the record container
         document.querySelector(".record-container").appendChild(recordElement);
 
-        // Clear the form fields after adding the record
-        document.getElementById("PatientNameInput").value = "";
-        document.getElementById("SymptomsInput").value = "";
-        document.getElementById("MedicationsInput").value = "";
+      // Clear the form fields after adding the record
+      document.getElementById("PatientNameInput").value = "";
+      document.getElementById("SymptomsInput").value = "";
+      document.getElementById("MedicationsInput").value = "";
     });
-  });
-</script>
+    });
+  </script>
 
   <footer>
-    <p class="text-center"> 
+    <p class="text-center">
       Made by Kiran Amin Panjwani <br>
       This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
     </p>
