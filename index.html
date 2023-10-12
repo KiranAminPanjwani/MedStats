@@ -145,14 +145,20 @@
       document.getElementById("add-record-btn").addEventListener("click", function (event) {
         event.preventDefault();
 
+        function isInvalidInput(input) {
+          const pattern = /^\s*$/;
+          return pattern.test(input);
+        }
+
         // Get values from the form
         var patientName = document.getElementById("PatientNameInput").value;
         var symptoms = document.getElementById("SymptomsInput").value;
         var medications = document.getElementById("MedicationsInput").value;
         var currentDate = new Date().toLocaleDateString();
-        if (!patientName || !symptoms || !medications) { 
-        alert("Please enter all valid details asked")
-      }
+
+        if (isInvalidInput(patientName) === "true" || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
+          alert("Invalid input: Please enter a non-empty value.");
+        }
         else {
           // Create a new record element with the entered details
           var recordElement = document.createElement("div");
@@ -181,11 +187,11 @@
         // Append the new record to the record container
         document.querySelector(".record-container").appendChild(recordElement);
 
-      // Clear the form fields after adding the record
-      document.getElementById("PatientNameInput").value = "";
-      document.getElementById("SymptomsInput").value = "";
-      document.getElementById("MedicationsInput").value = "";
-    });
+        // Clear the form fields after adding the record
+        document.getElementById("PatientNameInput").value = "";
+        document.getElementById("SymptomsInput").value = "";
+        document.getElementById("MedicationsInput").value = "";
+      });
     });
   </script>
 
