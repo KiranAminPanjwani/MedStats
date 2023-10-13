@@ -396,11 +396,7 @@ footer {
   padding-top: 15px;
   text-align: center; /* Center-align text */
   font-size: 14px; /* Font size */
-  /*  stuck footer at the bottom*/
-  position: fixed; 
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  
 }
 
 footer a {
