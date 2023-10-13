@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <h5 class="record-date">[Static Date]</h5>
         <div class="icons">
         <button id="edit">✏️</button>
-        <button id="close">❌</button>
+        <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
       </div>
     </div>
     <div class="record-body">
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <h5 class="record-date">${currentDate}</h5>
         <div class="icons">
           <button id="edit">✏️</button>
-          <button id="close">❌</button>
+          <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
         </div>
         </div>
         <div class="record-body">
