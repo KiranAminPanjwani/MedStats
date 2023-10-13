@@ -381,18 +381,20 @@ body {
   background-color: white;
   border-color: white;
 }
+
 #close:hover {
   border-radius: 90px;
   background-color: white;
   border-color: white;
   box-shadow: 1px 1px;
 }
-button img{
+
+button img {
   width: 25px;
   height: 25px;
 }
 
-button img{
+button img {
   width: 25px;
   height: 25px;
 }
