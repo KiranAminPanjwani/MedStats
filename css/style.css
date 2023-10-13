@@ -24,6 +24,7 @@
 * {
   box-sizing: border-box;
 }
+
 #navbar {
   width: 100vw;
   background-image: linear-gradient(to right, #b40c57, #bf3370);
@@ -31,11 +32,13 @@
   justify-content: space-between;
 }
 
-#navbar a{
+#navbar a {
   margin-left: 5%;
+  text-decoration: none;
+  color: inherit;
 }
 
-#navbar ul{
+#navbar ul {
   width: auto;
   list-style-type: none;
   color: white;
@@ -47,11 +50,11 @@
 
 }
 
-#navbar ul li{
+#navbar ul li {
   cursor: pointer;
 }
 
-#navbar ul li:hover{
+#navbar ul li:hover {
   font-style: italic;
 }
 
@@ -73,37 +76,44 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 3px;
 }
+
 section {
   margin-bottom: 2rem;
 }
+
 /* Applied text shadow to beautify the website */
-#subHead1{
+#subHead1 {
   color: black;
   text-shadow: 2px 2px 4px #888585;
   font-size: 30px;
 }
+
 /* Applied text shadow */
-#med{
+#med {
   color: rgb(0, 0, 0);
   text-shadow: 2px 2px 4px #979494;
   font-size: 18px;
 }
-#sym{
+
+#sym {
   color: rgb(0, 0, 0);
   text-shadow: 2px 2px 4px #979494;
   font-size: 18px;
 }
-#add-record-btn{
+
+#add-record-btn {
   /* border: 2px solid grey; */
   box-shadow: 3px 3px 2px grey;
   transition: transform 0.5s ease;
 }
+
 /* Hovering effetc on buttons */
-#add-record-btn:hover{
+#add-record-btn:hover {
   background-color: black;
   color: black;
   transform: scale(1.025);
 }
+
 .progress-bar {
   display: flex !important;
   flex-direction: row !important;
@@ -113,6 +123,7 @@ section {
   margin: 0 0 1rem 0 !important;
   background-color: transparent;
 }
+
 .progress-bar li {
   flex: 2;
   position: relative;
@@ -126,15 +137,18 @@ section {
   min-width: 0;
   text-align: center;
   border-bottom: 2px solid var(--color-gray-disabled);
-  cursor : pointer;
+  cursor: pointer;
 }
+
 .progress-bar li:first-child,
 .progress-bar li:last-child {
   flex: 1;
 }
+
 .progress-bar li:last-child {
   text-align: right;
 }
+
 .progress-bar li:before {
   content: "";
   display: block;
@@ -149,19 +163,24 @@ section {
   z-index: 3;
   transition: all 0.2s ease-in-out;
 }
+
 .progress-bar li:first-child:before {
   left: 0;
 }
+
 .progress-bar li:last-child:before {
   right: 0;
   left: auto;
 }
+
 .progress-bar span {
   transition: opacity 0.3s ease-in-out;
 }
+
 .progress-bar li:not(.is-active) span {
   opacity: 0;
 }
+
 .progress-bar .is-good:not(:first-child):after,
 .progress-bar .is-active:not(:first-child):after {
   content: "";
@@ -219,6 +238,7 @@ section {
 .progress-bar .is-fair:before {
   background-color: var(--color-orange);
 }
+
 .progress-bar .is-poor:before {
   background-color: var(--color-red);
 }
@@ -262,10 +282,12 @@ section {
   background-color: var(--color-white);
   border-color: var(--color-orange);
 }
+
 .is-poor:hover:before {
   background-color: var(--color-white);
   border-color: var(--color-red);
 }
+
 .is-improving:hover:before,
 .is-stable:hover:before {
   background-color: var(--color-white);
@@ -294,6 +316,7 @@ section {
 .progress-bar .has-changes {
   opacity: 1 !important;
 }
+
 .progress-bar .has-changes:before {
   content: "";
   display: block;
@@ -334,21 +357,28 @@ body {
   transition: transform 0.5s ease;
 }
 
-.record:hover{
-  .record-header,.record-footer{
+.record:hover {
+
+  .record-header,
+  .record-footer {
     background-color: rgb(187, 185, 185);
   }
-transform: scale(1.05);
+
+  transform: scale(1.05);
 }
+
 .record-header {
   padding: 20px;
   border-bottom: 1px solid #dee2e6;
 }
-.text-center1{
+
+.text-center1 {
   background-color: rgb(179, 172, 172);
   font-size: 18px;
-  text-shadow: 2px 2px 4px #979494;text-align: center;
+  text-shadow: 2px 2px 4px #979494;
+  text-align: center;
 }
+
 .record-date {
   margin: 0;
   font-size: 1rem;
@@ -390,21 +420,30 @@ transform: scale(1.05);
 
 /* Footer styles */
 footer {
-  background-color: #333; /* Background color */
-  color: #fff; /* Text color */
-  padding: 20px 0; /* Padding for top and bottom */
-  text-align: center; /* Center-align text */
-  font-size: 14px; /* Font size */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  padding: 20px 0;
+  /* Padding for top and bottom */
+  text-align: center;
+  /* Center-align text */
+  font-size: 14px;
+  /* Font size */
 }
 
 footer a {
-  color: #b40c57; /* Link color */
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s; /* Smooth color transition on hover */
+  color: #b40c57;
+  /* Link color */
+  text-decoration: none;
+  /* Remove underline */
+  transition: color 0.3s;
+  /* Smooth color transition on hover */
 }
 
 footer a:hover {
-  color: #fff; /* Change link color on hover */
+  color: #fff;
+  /* Change link color on hover */
 }
 
 /* Center the text vertically */
@@ -414,12 +453,12 @@ footer p {
 }
 
 @media screen and (max-width: 700px) {
-  .record-container{
+  .record-container {
     gap: 1.5rem;
   }
-  .record{
+
+  .record {
     width: 80%;
     margin: auto;
   }
 }
-
