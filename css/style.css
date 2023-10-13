@@ -387,6 +387,10 @@ body {
   border-color: white;
   box-shadow: 1px 1px;
 }
+button img{
+  width: 25px;
+  height: 25px;
+}
 
 button img{
   width: 25px;
