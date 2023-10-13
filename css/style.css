@@ -355,8 +355,55 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
+  position: relative;
 }
 
+<<<<<<< HEAD
+.icons {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  top: -1px;
+}
+
+#edit {
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+}
+
+#edit:hover {
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+  box-shadow: 1px 1px;
+}
+
+#close {
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+}
+
+#close:hover {
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+  box-shadow: 1px 1px;
+}
+
+button img {
+  width: 25px;
+  height: 25px;
+}
+
+button img {
+  width: 25px;
+  height: 25px;
+}
+
+=======
+>>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 .record:hover {
 
   .record-header,
@@ -420,7 +467,10 @@ body {
 
 /* Footer styles */
 footer {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
   background-color: #333;
   /* Background color */
   color: #fff;
@@ -431,6 +481,8 @@ footer {
   /* Center-align text */
   font-size: 14px;
   /* Font size */
+<<<<<<< HEAD
+=======
   
   background-color: #b40c57; /* Background color */
   color: #fff; /* Text color */
@@ -440,6 +492,7 @@ footer {
   font-size: 14px; /* Font size */
   
 
+>>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
 
 footer a {
@@ -471,6 +524,8 @@ footer p {
     width: 80%;
     margin: auto;
   }
+<<<<<<< HEAD
+=======
 
 }
 
@@ -489,4 +544,5 @@ footer p {
 a button{
   text-decoration: none;
 
+>>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
