@@ -119,7 +119,7 @@ section {
   padding: 0 0 14px 0;
   font-size: var(--font-size-default);
   line-height: 1.5;
-  color: var(--color-black);
+  color: white;
   font-weight: 600;
   white-space: nowrap;
   overflow: visible;
