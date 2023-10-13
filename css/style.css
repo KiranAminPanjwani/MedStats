@@ -130,7 +130,7 @@ section {
   padding: 0 0 14px 0;
   font-size: var(--font-size-default);
   line-height: 1.5;
-  color: var(--color-black);
+  color: white;
   font-weight: 600;
   white-space: nowrap;
   overflow: visible;
@@ -420,6 +420,7 @@ body {
 
 /* Footer styles */
 footer {
+
   background-color: #333;
   /* Background color */
   color: #fff;
@@ -430,6 +431,15 @@ footer {
   /* Center-align text */
   font-size: 14px;
   /* Font size */
+  
+  background-color: #b40c57; /* Background color */
+  color: #fff; /* Text color */
+   /* Padding for top and bottom */
+  padding-top: 15px;
+  text-align: center; /* Center-align text */
+  font-size: 14px; /* Font size */
+  
+
 }
 
 footer a {
@@ -461,4 +471,22 @@ footer p {
     width: 80%;
     margin: auto;
   }
+
+}
+
+.form-container {
+  max-width: 500px; /* Adjust the maximum width to your preference */
+  margin: 0 auto; /* Center the container horizontally */
+  height: 220px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+a button{
+  text-decoration: none;
+
 }
