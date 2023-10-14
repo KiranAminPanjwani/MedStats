@@ -62,6 +62,31 @@
   </div>
 
   </div>
+  <footer style="
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;">
+    <p class="text-center1">
+      Made by Kiran Amin Panjwani 
+      <br>
+      This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.</br></br>
+    </p>
+  </footer>
+
+  <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('current-year').textContent = currentYear;
+  </script>
+  <script>
+    // const addRecordBtn = document.getElementById("add-record-btn");
+
+    // addRecordBtn.addEventListener("click", function () {
+    //   alert("Please login inorder to save add your records to your personal journal");
+    // });
+  </script>
+  
+
 </section>
 <section>
   <footer>
@@ -72,6 +97,7 @@
   </footer>
 
 </section>
+
 </body>
 
 </html>
