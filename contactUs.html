@@ -60,16 +60,18 @@
     <footer>
         <p class="text-center">
             Made by Kiran Amin Panjwani <br>
-            This Project is participating in Hacktoberfest. Copyright © 2023.</br></br>
+            This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.</br></br>
         </p>
     </footer>
 
     <!-- dynamic data code -->
     <script src="./js/script.js"></script>
 
-
-    <!-- dynamic data code -->
-    <script src="./js/script.js"></script>
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('current-year').textContent = currentYear;
+    </script>
+    
 </body>
 
 </html>
