@@ -162,3 +162,45 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("MedicationsInput").value = "";
   });
 });
+
+// Dark Mode Feature
+
+function setDarkMode() {
+  document.querySelector('body').setAttribute('data-theme', 'dark');
+  localStorage.setItem("selectedTheme", "dark");
+}
+
+function setLightMode() {
+  document.querySelector('body').setAttribute('data-theme', 'light');
+  localStorage.setItem("selectedTheme", "light");
+}
+
+// const selectedTheme = localStorage.getItem("selectedTheme");
+// if (selectedTheme === "dark") {
+//   setDarkMode();
+// }
+
+// function toggleTheme(e) {
+//   if (e.checked) {
+//     setDarkMode();
+//   } else {
+//     setLightMode();
+//   }
+// }
+// function hi(){
+//   alert("hellow");
+// }
+
+// if (selectedTheme === "dark") {
+//   setLightMode();
+// }
+
+function toggleTheme(e) {
+  const selectedTheme = localStorage.getItem("selectedTheme");
+  if (selectedTheme === "dark") {
+    setLightMode();
+  }
+  else if (selectedTheme === "light") {
+    setDarkMode();
+  }
+}

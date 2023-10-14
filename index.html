@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <link rel="Shortcut Icon" type="image/ico" href="images/favicon.svg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta class="viewport" content="width=device-width, initial-scale=1.0">
 
 
   <title>MedStats</title>
@@ -40,7 +40,18 @@
 
       <li><a href="contactUs.html">Contact Us</a></li>
       <li><a href="login.html" style="color: white; text-decoration: none;">Logout</a></li>
-      
+      <div class='dark_mode' >
+        <input
+            class='dark_mode_input'
+            type='checkbox'
+            id='darkmode-toggle'
+            onchange="toggleTheme()"
+        />
+        <label class='dark_mode_label' for='darkmode-toggle'>
+          <img src="/images/Sun.svg" alt="" id="Sun">
+          <img src="/images/Moon.svg" alt="" id="Moon">
+        </label>
+    </div>
 
     </ul>
   </nav>
@@ -54,9 +65,9 @@
     <!-- Modify your form to include unique IDs for input fields -->
     <form id="MedicalForm">
       <div class="form-group row">
-        <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
+        <label for="Patientclass" class="col-sm-2 col-form-label">Patient class:</label>
         <div class="col-sm-10 position-relative">
-          <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
+          <input type="text" class="form-control" id="PatientclassInput" placeholder="Patient class">
         </div>
       </div>
       <div class="form-group row">

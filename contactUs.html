@@ -34,6 +34,18 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contactUs.html">Contact Us</a></li>
             <li><a href="login.html" style="color: white; text-decoration: none;">Logout</a></li>
+            <div class='dark_mode' >
+                <input
+                    class='dark_mode_input'
+                    type='checkbox'
+                    id='darkmode-toggle'
+                    onchange="toggleTheme()"
+                />
+                <label class='dark_mode_label' for='darkmode-toggle'>
+                  <img src="/images/Sun.svg" alt="" id="Sun">
+                  <img src="/images/Moon.svg" alt="" id="Moon">
+                </label>
+            </div>
         </ul>
     </nav>
 
