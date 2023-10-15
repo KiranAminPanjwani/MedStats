@@ -379,7 +379,6 @@ body {
   position: relative;
 }
 
-<<<<<<< HEAD
 .icons {
   display: flex;
   position: absolute;
@@ -423,8 +422,6 @@ button img {
   height: 25px;
 }
 
-=======
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 .record:hover {
 
   .record-header,
@@ -488,10 +485,6 @@ button img {
 
 /* Footer styles */
 footer {
-<<<<<<< HEAD
-=======
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
   background-color: #333;
   /* Background color */
   color: #fff;
@@ -502,18 +495,6 @@ footer {
   /* Center-align text */
   font-size: 14px;
   /* Font size */
-<<<<<<< HEAD
-=======
-  
-  background-color: #b40c57; /* Background color */
-  color: #fff; /* Text color */
-   /* Padding for top and bottom */
-  padding-top: 15px;
-  text-align: center; /* Center-align text */
-  font-size: 14px; /* Font size */
-  
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
 
 footer a {
@@ -545,8 +526,11 @@ footer p {
     width: 80%;
     margin: auto;
   }
-<<<<<<< HEAD
-=======
+
+}
+
+
+
 
 }
 
@@ -565,7 +549,7 @@ footer p {
 a button{
   text-decoration: none;
 
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
+
 }
 /* ----------------------------------------start popup in progress bar  */
 /* Popup container */
@@ -660,3 +644,4 @@ a button{
   
 }
 /* ----------------------------------------end popup in progress bar  */
+
