@@ -30,19 +30,30 @@
   <!-- NavBar -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
-      <!-- <img src="./medicalLogo.png" /> -->
       <i class="fa fa-stethoscope" style="font-size:30px;color:white"></i>
       <img src="./images/logo-color.jpeg" alt="" width="130px">
     </a>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-
-      <li><a href="contactUs.html">Contact Us</a></li>
-      <li><a href="login.html" style="color: white; text-decoration: none;">Login</a></li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactUs.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html" style="color: white; text-decoration: none;">Login</a>
+        </li>
+      </ul>
+    </div>
   </nav>
-
+  
   <!-- Section for Adding Health Records -->
   <div class="container pt-4 mt-5 my-3">
     <br>
@@ -53,25 +64,26 @@
     <form id="MedicalForm">
       <div class="form-group row">
         <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
-        <div class="col-sm-10 position-relative">
+        <div class="col-sm-10 col-md-6 position-relative">
           <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
         </div>
       </div>
       <div class="form-group row">
-        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-        <div class="col-sm-10 position-relative">
+        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms:</label>
+        <div class="col-sm-10 col-md-6 position-relative">
           <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
         </div>
       </div>
       <div class="form-group row">
         <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-        <div class="col-sm-10">
+        <div class="col-sm-10 col-md-6">
           <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
         </div>
       </div>
       <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
         id="add-record-btn">Add Your Record</button>
     </form>
+    
 
 
   </div>
@@ -122,6 +134,9 @@
   <!-- dynamic data code -->
   <script src="./js/script.js"></script>
   <script src="./js/scrollTop.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     const currentYear = new Date().getFullYear();
     document.getElementById('current-year').textContent = currentYear;
