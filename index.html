@@ -49,36 +49,27 @@
     <hr>
 
     <!-- Modify your form to include unique IDs for input fields -->
-    <form id="MedicalForm">
-      <div class="form-group row">
-        <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
-        <div class="col-sm-10 position-relative">
-          <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
+    <form id="MedicalForm" style="padding: 3rem;">
+        <div class="form-group">
+            <input type="text" class="form-control mx-auto" style="max-width: 400px;" id="PatientNameInput" placeholder="Patient Name">
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-        <div class="col-sm-10 position-relative">
-          <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
+        <div class="form-group">
+            <input type="text" class="form-control mx-auto" style="max-width: 400px;" id="SymptomsInput" placeholder="Symptoms">
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
+        <div class="form-group">
+            <input type="text" class="form-control mx-auto" style="max-width: 400px;" id="MedicationsInput" placeholder="Medications">
         </div>
-      </div>
-      <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
-        id="add-record-btn">Add Your Record</button>
+
+        <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40955; padding:10px; border-radius: 2rem; max-width: 150px; margin: 0 auto;"
+            id="add-record-btn">Add Your Record</button>
     </form>
+</div>
 
-
-  </div>
 
   <!-- Section for Progress Bar -->
 
   <div>
-    <section style="background-color: #85365e; padding: 5%; margin-bottom: 0;">
+    <section style="background-color: #040b33; padding: 2%; margin-bottom: 5rem;  max-width: 70%; margin: 3rem auto; border-radius: 2rem;">
       <h2 style="color: white; font-size: large;">Check your progress</h2>
 
       <ol class="progress-bar">
