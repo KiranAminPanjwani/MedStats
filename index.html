@@ -1,228 +1,243 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="Shortcut Icon" type="image/ico" href="images/favicon.svg" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <title>MedStats</title>
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="Shortcut Icon" type="image/ico" href="images/favicon.svg">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
 
+        <link rel="stylesheet" href="./css/style.css" />
+        <!-- Your custom CSS file -->
 
-  <title>MedStats</title>
+        <link rel="stylesheet" href="./css/verticalScroll.css" />
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/scrollTop.css" />
+    </head>
 
-  <link rel="stylesheet" href="./css/style.css"> <!-- Your custom CSS file -->
+    <body>
+        <!-- NavBar -->
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px">
+                <!-- <img src="./medicalLogo.png" /> -->
+                <i class="fa fa-stethoscope" style="font-size: 30px; color: white"></i>
+                <img src="./images/logo-color.jpeg" alt="" width="130px" />
+            </a>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
 
-  <link rel="stylesheet" href="./css/verticalScroll.css">
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="login.html" style="color: white; text-decoration: none">Login</a></li>
+            </ul>
+        </nav>
 
-  <link rel="stylesheet" href="./css/scrollTop.css">
+        <!-- Section for Adding Health Records -->
+        <div class="container pt-4 mt-5 my-3">
+            <br />
+            <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
+            <hr />
 
-</head>
-
-<body>
-
-  <!-- NavBar -->
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
-      <!-- <img src="./medicalLogo.png" /> -->
-      <i class="fa fa-stethoscope" style="font-size:30px;color:white"></i>
-      <img src="./images/logo-color.jpeg" alt="" width="130px">
-    </a>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-
-      <li><a href="contactUs.html">Contact Us</a></li>
-      <li><a href="login.html" style="color: white; text-decoration: none;">Login</a></li>
-    </ul>
-  </nav>
-
-  <!-- Section for Adding Health Records -->
-  <div class="container pt-4 mt-5 my-3">
-    <br>
-    <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
-    <hr>
-
-    <!-- Modify your form to include unique IDs for input fields -->
-    <form id="MedicalForm">
-      <div class="form-group row">
-        <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
-        <div class="col-sm-10 position-relative">
-          <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name">
+            <!-- Modify your form to include unique IDs for input fields -->
+            <form id="MedicalForm">
+                <div class="form-group row">
+                    <label for="PatientName" class="col-sm-2 col-form-label">Patient Name:</label>
+                    <div class="col-sm-10 position-relative">
+                        <input type="text" class="form-control" id="PatientNameInput" placeholder="Patient Name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
+                    <div class="col-sm-10 position-relative">
+                        <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications" />
+                    </div>
+                </div>
+                <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57" id="add-record-btn">
+                    Add Your Record
+                </button>
+            </form>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="Symptoms" class="col-sm-2 col-form-label">Symptoms :</label>
-        <div class="col-sm-10 position-relative">
-          <input type="text" class="form-control" id="SymptomsInput" placeholder="Symptoms">
+
+        <!-- Section for Progress Bar -->
+
+        <div>
+            <section style="background-color: #85365e; padding: 5%; margin-bottom: 0">
+                <h2 style="color: white; font-size: large">Check your progress</h2>
+
+                <ol class="progress-bar">
+                    <li class="is-good" onclick="progressbarPopup(7)">
+                        <div class="popup">
+                            <span
+                                >Excellent<br /><span>July/9/2023</span>
+                                <span class="popuptext" id="Popup7" style="left: -50%">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">July/9/2023</div>
+                                        <div class="HealthTag" style="background-color: #b1eb9d">Excellent</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Notting <br />
+                                        💊 Medications : Notting
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="is-good" onclick="progressbarPopup(6)">
+                        <div class="popup">
+                            <span
+                                >Healthy<br /><span>August/12/2023</span>
+                                <span class="popuptext" id="Popup6" style="left: -50%">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">August/12/2023</div>
+                                        <div class="HealthTag" style="background-color: #b1eb9d">Healthy</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Notting <br />
+                                        💊 Medications : Notting
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="is-fair" onclick="progressbarPopup(5)">
+                        <div class="popup">
+                            <span
+                                >Fair<br /><span>Sep/8/2023</span>
+                                <span class="popuptext" id="Popup5" style="left: -50%">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">Sep/8/2023</div>
+                                        <div class="HealthTag" style="background-color: #f7e694">Fair</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Fever, High blood pressure<br />
+                                        💊 Medications : Acetaminophen (Tylenol), Lisinopril
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="is-poor" onclick="progressbarPopup(4)">
+                        <div class="popup">
+                            <span
+                                >Poor<br /><span>Sep/15/2023</span>
+                                <span class="popuptext" id="Popup4">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">Sep/15/2023</div>
+                                        <div class="HealthTag" style="background-color: rgb(249, 49, 89); color: white">Poor</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Fever Joint, muscle pain<br />
+                                        💊 Medications : Acetaminophen (Tylenol), <br />Ibuprofen (Advil, Motrin)
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="is-improving" onclick="progressbarPopup(3)">
+                        <div class="popup">
+                            <span
+                                >Improving<br /><span>Sep/30/2023</span>
+                                <span class="popuptext" id="Popup3">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">Sep/30/2023</div>
+                                        <div class="HealthTag" style="background-color: #fceeaa">Improving</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Fever <br />
+                                        💊 Medications : Acetaminophen (Tylenol)
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="is-stable" onclick="progressbarPopup(2)">
+                        <div class="popup">
+                            <span
+                                >Stable<br /><span>Oct/3/2023</span>
+                                <span class="popuptext" id="Popup2">
+                                    <div class="navProgressbar">
+                                        <div class="dateBox">Oct/3/2023</div>
+                                        <div class="HealthTag" style="background-color: #fceeaa">Stable</div>
+                                    </div>
+                                    <hr class="hrPopup" />
+                                    <p class="pPopup">
+                                        😷 Symptoms : Fever<br />
+                                        💊 Medications : Acetaminophen (Tylenol)
+                                    </p>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+
+                    <li class="is-active" onclick="progressbarPopup(1)">
+                        <div class="popup">
+                            <span>Healthy <br /><span>[Today]</span></span
+                            ><span class="popuptext" id="Popup1">
+                                <div class="navProgressbar">
+                                    <div class="dateBox">Today</div>
+                                    <div class="HealthTag" style="background-color: #b1eb9d">Healthy</div>
+                                </div>
+                                <hr class="hrPopup" />
+                                <p class="pPopup">
+                                    😷 Symptoms : Notting<br />
+                                    💊 Medications : Notting
+                                </p>
+                            </span>
+                        </div>
+                    </li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                    <li><span></span></li>
+                </ol>
+            </section>
         </div>
-      </div>
-      <div class="form-group row">
-        <label for="Medications" class="col-sm-2 col-form-label">Medications:</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="MedicationsInput" placeholder="Medications">
+        <div class="record-container">
+            <!-- dont remove this div -->
+            <!-- Repeat the above code for each recorded note -->
         </div>
-      </div>
-      <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57;"
-        id="add-record-btn">Add Your Record</button>
-    </form>
 
+        <footer>
+            <p class="text-center1">
+                Made by Kiran Amin Panjwani <br />
+                This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>. <br /><br />
+            </p>
+        </footer>
 
-  </div>
+        <!-- Scroll to top button start -->
+        <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">
+            <i class="icon-chevron-up"></i>
+        </button>
+        <!-- end -->
 
-  <!-- Section for Progress Bar -->
+        <!-- dynamic data code -->
+        <script src="./js/script.js"></script>
+        <script src="./js/scrollTop.js"></script>
 
-  <div>
-    <section style="background-color: #85365e; padding: 5%; margin-bottom: 0;">
-      <h2 style="color: white; font-size: large;">Check your progress</h2>
+        <script src="./js/progressBar.js"></script>
 
-      <ol class="progress-bar">
-        <li class="is-good" onclick="progressbarPopup(7)">
-          <div class="popup"><span>Excellent</br><span>July/9/2023</span>
-              <span class="popuptext" id="Popup7" style="left: -50%;">
-                <div class="navProgressbar">
-                  <div class="dateBox">July/9/2023</div>
-                  <div class="HealthTag" style="background-color: #b1eb9d;">Excellent</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Notting <br />
-                  💊 Medications : Notting
-                  </p>
-              </span>
-            </span></div>
-        </li>
-        <li class="is-good" onclick="progressbarPopup(6)">
-          <div class="popup"><span>Healthy</br><span>August/12/2023</span>
-              <span class="popuptext" id="Popup6" style="left: -50%;">
-                <div class="navProgressbar">
-                  <div class="dateBox">August/12/2023</div>
-                  <div class="HealthTag" style="background-color: #b1eb9d;">Healthy</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Notting <br />
-                  💊 Medications : Notting
-                  </p>
-              </span>
-            </span></div>
-        </li>
-        <li class="is-fair" onclick="progressbarPopup(5)">
-          <div class="popup"><span>Fair</br><span>Sep/8/2023</span>
-              <span class="popuptext" id="Popup5" style="left: -50%;">
-                <div class="navProgressbar">
-                  <div class="dateBox">Sep/8/2023</div>
-                  <div class="HealthTag" style="background-color: #f7e694;">Fair</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Fever, High blood pressure<br />
-                  💊 Medications : Acetaminophen (Tylenol), Lisinopril
-                  </p>
-              </span>
-            </span></div>
-        </li>
-        <li class="is-poor" onclick="progressbarPopup(4)">
-          <div class="popup"><span>Poor</br><span>Sep/15/2023</span>
-              <span class="popuptext" id="Popup4">
-                <div class="navProgressbar">
-                  <div class="dateBox">Sep/15/2023</div>
-                  <div class="HealthTag" style="background-color: rgb(249, 49, 89); color: white;">Poor</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Fever Joint, muscle pain<br />
-                  💊 Medications : Acetaminophen (Tylenol), <br/>Ibuprofen (Advil, Motrin)
-                  </p>
-              </span>
-            </span></div>
-        </li>
-        <li class="is-improving" onclick="progressbarPopup(3)">
-          <div class="popup"><span>Improving</br><span>Sep/30/2023</span>
-              <span class="popuptext" id="Popup3">
-                <div class="navProgressbar">
-                  <div class="dateBox">Sep/30/2023</div>
-                  <div class="HealthTag" style="background-color: #fceeaa;">Improving</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Fever <br />
-                  💊 Medications : Acetaminophen (Tylenol)
-                  </p>
-              </span>
-            </span></div>
-        </li>
-        <li class="is-stable" onclick="progressbarPopup(2)">
-          <div class="popup"><span>Stable</br><span>Oct/3/2023</span>
-              <span class="popuptext" id="Popup2">
-                <div class="navProgressbar">
-                  <div class="dateBox">Oct/3/2023</div>
-                  <div class="HealthTag" style="background-color: #fceeaa;">Stable</div>
-                </div>
-                <hr class="hrPopup" />
-                <p class="pPopup">😷 Symptoms : Fever<br />
-                  💊 Medications : Acetaminophen (Tylenol)
-                  </p>
-              </span>
-          </div>
-          </span>
-
-        </li>
-
-        <li class="is-active" onclick="progressbarPopup(1)">
-          <div class="popup"><span>Healthy
-              </br><span>[Today]</span></span><span class="popuptext" id="Popup1">
-              <div class="navProgressbar">
-                <div class="dateBox">Today</div>
-                <div class="HealthTag" style="background-color: #b1eb9d;">Healthy</div>
-              </div>
-              <hr class="hrPopup" />
-              <p class="pPopup">😷 Symptoms : Notting<br />
-                💊 Medications : Notting
-                </p>
-                
-            </span>
-
-          </div>
-
-        </li>
-        <li><span></span></li>
-        <li><span></span></li>
-        <li><span></span></li>
-      </ol>
-    </section>
-
-  </div>
-  <div class="record-container">
-    <!-- dont remove this div -->
-    <!-- Repeat the above code for each recorded note -->
-  </div>
-
-  <footer>
-    <p class="text-center1">
-      Made by Kiran Amin Panjwani <br>
-      This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.
-      </br></br>
-    </p>
-  </footer>
-
-  <!-- Scroll to top button start -->
-  <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">
-    <i class="icon-chevron-up"></i>
-  </button>
-  <!-- end -->
-
-  <!-- dynamic data code -->
-  <script src="./js/script.js"></script>
-  <script src="./js/scrollTop.js"></script>
-
-  <script src="./js/progressBar.js"></script>
-
-  <script>
-    const currentYear = new Date().getFullYear();
-    document.getElementById('current-year').textContent = currentYear;
-</script>
-
-</body>
-
+        <script>
+            const currentYear = new Date().getFullYear();
+            document.getElementById("current-year").textContent = currentYear;
+        </script>
+    </body>
 </html>
