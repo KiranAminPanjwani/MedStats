@@ -78,3 +78,54 @@
     }
   }
   
+
+/* Footer styles */
+footer {
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  text-align: center;
+  /* Center-align text */
+  font-size: 14px;
+  /* Font size */
+
+  color: #fff; /* Text color */
+  text-align: center; /* Center-align text */
+  font-size: 14px; /* Font size */
+}
+
+footer a {
+  color: #b40c57;
+  /* Link color */
+  text-decoration: none;
+  /* Remove underline */
+  transition: color 0.3s;
+  /* Smooth color transition on hover */
+}
+
+footer a:hover {
+  color: #fff;
+  /* Change link color on hover */
+}
+
+/* Center the text vertically */
+footer p {
+  margin: 0;
+  line-height: 1.5;
+  padding: 32px;
+}
+
+@media screen and (max-width: 700px) {
+  footer p {
+    padding: 28px 16px 0 16px !important;
+  }
+
+  .record-container {
+    gap: 1.5rem;
+  }
+
+  .record {
+    width: 80%;
+    margin: auto;
+  }
+}

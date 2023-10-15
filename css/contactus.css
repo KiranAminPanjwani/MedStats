@@ -27,7 +27,6 @@
   font-size: 2.5rem;
   font-weight: 400;
   color: white;
-
 }
 
 .contact-form h2 {
@@ -63,12 +62,10 @@
   border-bottom-right-radius: 8px;
   align-items: center;
   display: grid;
-
 }
 
 .form-img img {
   width: 300px;
-
 }
 
 .btn,
@@ -105,7 +102,6 @@ textarea {
 .contact-form input:focus {
   background: white;
   border: 1px solid white;
-
 }
 
 .contact-form button {
@@ -116,4 +112,27 @@ textarea {
   font-weight: 600;
   transition: 0.3s ease;
   padding: 14px 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-form {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main {
+    flex-direction: column;
+    margin: 0 !important;
+  }
+
+  .content {
+    margin: 24px;
+    border-radius: 8px;
+  }
 }
