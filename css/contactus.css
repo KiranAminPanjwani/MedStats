@@ -74,12 +74,12 @@
 .btn,
 button,
 input {
-  border-radius: 35px;
+  border-radius: 6px; 
 }
 
 .btn:hover,
 button:hover {
-  color: #b40955;
+  color:white ;
   transition: 0.5s ease;
 }
 
@@ -100,6 +100,7 @@ textarea {
   border: none;
   background-color: #f0f4f8;
   transform: 0.3s ease;
+  border-radius: 6px; 
 }
 
 .contact-form input:focus {
@@ -116,4 +117,8 @@ textarea {
   font-weight: 600;
   transition: 0.3s ease;
   padding: 14px 15px;
+}
+
+.contact-form button:hover{
+  scale:1.05;
 }
