@@ -358,7 +358,6 @@ body {
   position: relative;
 }
 
-<<<<<<< HEAD
 .icons {
   display: flex;
   position: absolute;
@@ -402,8 +401,6 @@ button img {
   height: 25px;
 }
 
-=======
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 .record:hover {
 
   .record-header,
@@ -467,10 +464,6 @@ button img {
 
 /* Footer styles */
 footer {
-<<<<<<< HEAD
-=======
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
   background-color: #333;
   /* Background color */
   color: #fff;
@@ -481,18 +474,6 @@ footer {
   /* Center-align text */
   font-size: 14px;
   /* Font size */
-<<<<<<< HEAD
-=======
-  
-  background-color: #b40c57; /* Background color */
-  color: #fff; /* Text color */
-   /* Padding for top and bottom */
-  padding-top: 15px;
-  text-align: center; /* Center-align text */
-  font-size: 14px; /* Font size */
-  
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
 
 footer a {
@@ -524,25 +505,4 @@ footer p {
     width: 80%;
     margin: auto;
   }
-<<<<<<< HEAD
-=======
-
-}
-
-.form-container {
-  max-width: 500px; /* Adjust the maximum width to your preference */
-  margin: 0 auto; /* Center the container horizontally */
-  height: 220px;
-  padding: 30px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f8f8f8;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 50px;
-}
-
-a button{
-  text-decoration: none;
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
