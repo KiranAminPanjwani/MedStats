@@ -140,20 +140,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const editButton = recordElement.querySelector('#edit');
-    const saveButton = document.createElement('button');
+    
 
     editButton.addEventListener('click', function () {
+      createSaveButton()
       enterEditMode(recordElement);
       saveButton.style.display = 'block';
     });
 
-    saveButton.textContent = 'Save';
-    recordElement.appendChild(saveButton);
+    //Creates Save button 
+    function createSaveButton(){
+      const saveButton = document.createElement('button');
+      saveButton.textContent = 'Save';
+      recordElement.appendChild(saveButton);
+      saveButton.addEventListener('click', function () {
+        saveChanges(recordElement);
+        saveButton.style.display = 'none';
+      });
+    }
 
-    saveButton.addEventListener('click', function () {
-      saveChanges(recordElement);
-      saveButton.style.display = 'none';
-    });
+   
 
 
     // Clear the form fields after adding the record
