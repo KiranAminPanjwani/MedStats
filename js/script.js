@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
     saveButton.style.display = "none";
-    // document.getElementById("save-btn").style.display = "none";
 
     editButton.addEventListener('click', function () {
       console.log('workin')
@@ -150,9 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
       enterEditMode(recordElement);
     });
 
-    //Creates Save button 
-  
-      
       saveButton.textContent = 'Save';
       recordElement.appendChild(saveButton);
       saveButton.addEventListener('click', function () {
