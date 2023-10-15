@@ -47,7 +47,6 @@
   flex-wrap: wrap;
   padding-top: 10px;
   margin-right: 5%;
-
 }
 
 #navbar ul li {
@@ -58,6 +57,54 @@
   font-style: italic;
 }
 
+@media only screen and (max-width: 600px) {
+  .navbar {
+    position: relative;
+  }
+
+  .nav-bar-list {
+    display: none !important;
+  }
+
+  .nav-bar-link {
+    width: 100%;
+  }
+
+  .nav-bar-menu {
+    position: absolute;
+    right: 12px;
+    top: 24px;
+    width: auto;
+  }
+
+  .nav-bar-show {
+    display: flex !important;
+    justify-content: space-between;
+    gap: 0 !important;
+  }
+
+  .nav-bar-menu-icon {
+    background-color: transparent;
+    border: none;
+    .fa {
+      color: white !important;
+      font-size: 24px;
+    }
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .nav-bar-menu-icon {
+    display: none;
+  }
+
+  .nav-bar-link {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -270,13 +317,10 @@ section {
   border-color: var(--color-green);
 }
 
-
 .is-good:hover:before {
   background-color: var(--color-white);
   border-color: var(--color-green);
 }
-
-
 
 .is-fair:hover:before {
   background-color: var(--color-white);
@@ -358,7 +402,6 @@ body {
   position: relative;
 }
 
-<<<<<<< HEAD
 .icons {
   display: flex;
   position: absolute;
@@ -397,15 +440,7 @@ button img {
   height: 25px;
 }
 
-button img {
-  width: 25px;
-  height: 25px;
-}
-
-=======
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 .record:hover {
-
   .record-header,
   .record-footer {
     background-color: rgb(187, 185, 185);
@@ -464,35 +499,19 @@ button img {
   color: #dc3545;
 }
 
-
 /* Footer styles */
 footer {
-<<<<<<< HEAD
-=======
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
-  background-color: #333;
   /* Background color */
   color: #fff;
   /* Text color */
-  padding: 20px 0;
-  /* Padding for top and bottom */
   text-align: center;
   /* Center-align text */
   font-size: 14px;
   /* Font size */
-<<<<<<< HEAD
-=======
-  
-  background-color: #b40c57; /* Background color */
+
   color: #fff; /* Text color */
-   /* Padding for top and bottom */
-  padding-top: 15px;
   text-align: center; /* Center-align text */
   font-size: 14px; /* Font size */
-  
-
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
 
 footer a {
@@ -513,9 +532,14 @@ footer a:hover {
 footer p {
   margin: 0;
   line-height: 1.5;
+  padding: 32px;
 }
 
 @media screen and (max-width: 700px) {
+  footer p {
+    padding: 28px 16px 0 16px !important;
+  }
+
   .record-container {
     gap: 1.5rem;
   }
@@ -524,9 +548,6 @@ footer p {
     width: 80%;
     margin: auto;
   }
-<<<<<<< HEAD
-=======
-
 }
 
 .form-container {
@@ -541,8 +562,12 @@ footer p {
   margin-top: 50px;
 }
 
-a button{
+a button {
   text-decoration: none;
+}
 
->>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
+@media only screen and (max-width: 600px) {
+  .container-index {
+    margin-top: -32px !important;
+  }
 }
