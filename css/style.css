@@ -567,3 +567,96 @@ a button{
 
 >>>>>>> 400bc3df3abf6dfe95e81b2dcedcb9ecad5b5827
 }
+/* ----------------------------------------start popup in progress bar  */
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  visibility: hidden;
+  background-color: #FFF0F5;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  border-radius: 8px;
+  position: absolute;
+  height: 200px;
+  width: 400px;
+  bottom: calc(100% + 1rem);
+  right: -50%;
+  transform-origin: 100% 100%;
+  color: #424343;
+  border-bottom: 30px solid #FBA1B7;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 0.1s;
+  animation: fadeIn 0.1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.dateBox {
+  
+  padding: 5px 10px;
+  border-radius: 50px;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  width: min-content;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  
+ }
+ .HealthTag {
+  padding: 5px 10px;
+  border-radius: 50px;
+  border: 0;
+  
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  font-size: 15px;
+  width: min-content;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  
+ }
+
+ .hrPopup { 
+  
+  border-radius: 25px;
+  border: none;
+  width: 100%;
+  margin: 0;
+  border-top: 3px solid #FFDBAA;
+  border-bottom: 4px solid #FFDBAA;
+} 
+
+.pPopup{
+  margin-top: 10px;
+  text-align: left;
+}
+
+.navProgressbar{
+  display: flex;
+  
+}
+/* ----------------------------------------end popup in progress bar  */

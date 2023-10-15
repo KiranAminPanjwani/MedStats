@@ -22,7 +22,6 @@
 
   <link rel="stylesheet" href="./css/scrollTop.css">
 
-
 </head>
 
 <body>
@@ -83,15 +82,109 @@
       <h2 style="color: white; font-size: large;">Check your progress</h2>
 
       <ol class="progress-bar">
-        <li class="is-good"><span>Excellent</br><span>July/9/2023</span></span>
+        <li class="is-good" onclick="progressbarPopup(7)">
+          <div class="popup"><span>Excellent</br><span>July/9/2023</span>
+              <span class="popuptext" id="Popup7" style="left: -50%;">
+                <div class="navProgressbar">
+                  <div class="dateBox">July/9/2023</div>
+                  <div class="HealthTag" style="background-color: #b1eb9d;">Excellent</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Notting <br />
+                  💊 Medications : Notting
+                  </p>
+              </span>
+            </span></div>
         </li>
-        <li class="is-good"><span>Healthy</br><span>August/12/2023</span></span></li>
-        <li class="is-fair"><span>Fair</br><span>Sep/8/2023</span></span></li>
-        <li class="is-poor"><span>Poor</br><span>Sep/15/2023</span></span></li>
-        <li class="is-improving"><span>Improving</br><span>Sep/30/2023</span></span></li>
-        <li class="is-stable"><span>Stable</br><span>Oct/3/2023</span></span></li>
-        <li class="is-active"><span>Healthy
-            </br><span>[Today]</span></span>
+        <li class="is-good" onclick="progressbarPopup(6)">
+          <div class="popup"><span>Healthy</br><span>August/12/2023</span>
+              <span class="popuptext" id="Popup6" style="left: -50%;">
+                <div class="navProgressbar">
+                  <div class="dateBox">August/12/2023</div>
+                  <div class="HealthTag" style="background-color: #b1eb9d;">Healthy</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Notting <br />
+                  💊 Medications : Notting
+                  </p>
+              </span>
+            </span></div>
+        </li>
+        <li class="is-fair" onclick="progressbarPopup(5)">
+          <div class="popup"><span>Fair</br><span>Sep/8/2023</span>
+              <span class="popuptext" id="Popup5" style="left: -50%;">
+                <div class="navProgressbar">
+                  <div class="dateBox">Sep/8/2023</div>
+                  <div class="HealthTag" style="background-color: #f7e694;">Fair</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Fever, High blood pressure<br />
+                  💊 Medications : Acetaminophen (Tylenol), Lisinopril
+                  </p>
+              </span>
+            </span></div>
+        </li>
+        <li class="is-poor" onclick="progressbarPopup(4)">
+          <div class="popup"><span>Poor</br><span>Sep/15/2023</span>
+              <span class="popuptext" id="Popup4">
+                <div class="navProgressbar">
+                  <div class="dateBox">Sep/15/2023</div>
+                  <div class="HealthTag" style="background-color: rgb(249, 49, 89); color: white;">Poor</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Fever Joint, muscle pain<br />
+                  💊 Medications : Acetaminophen (Tylenol), <br/>Ibuprofen (Advil, Motrin)
+                  </p>
+              </span>
+            </span></div>
+        </li>
+        <li class="is-improving" onclick="progressbarPopup(3)">
+          <div class="popup"><span>Improving</br><span>Sep/30/2023</span>
+              <span class="popuptext" id="Popup3">
+                <div class="navProgressbar">
+                  <div class="dateBox">Sep/30/2023</div>
+                  <div class="HealthTag" style="background-color: #fceeaa;">Improving</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Fever <br />
+                  💊 Medications : Acetaminophen (Tylenol)
+                  </p>
+              </span>
+            </span></div>
+        </li>
+        <li class="is-stable" onclick="progressbarPopup(2)">
+          <div class="popup"><span>Stable</br><span>Oct/3/2023</span>
+              <span class="popuptext" id="Popup2">
+                <div class="navProgressbar">
+                  <div class="dateBox">Oct/3/2023</div>
+                  <div class="HealthTag" style="background-color: #fceeaa;">Stable</div>
+                </div>
+                <hr class="hrPopup" />
+                <p class="pPopup">😷 Symptoms : Fever<br />
+                  💊 Medications : Acetaminophen (Tylenol)
+                  </p>
+              </span>
+          </div>
+          </span>
+
+        </li>
+
+        <li class="is-active" onclick="progressbarPopup(1)">
+          <div class="popup"><span>Healthy
+              </br><span>[Today]</span></span><span class="popuptext" id="Popup1">
+              <div class="navProgressbar">
+                <div class="dateBox">Today</div>
+                <div class="HealthTag" style="background-color: #b1eb9d;">Healthy</div>
+              </div>
+              <hr class="hrPopup" />
+              <p class="pPopup">😷 Symptoms : Notting<br />
+                💊 Medications : Notting
+                </p>
+                
+            </span>
+
+          </div>
+
         </li>
         <li><span></span></li>
         <li><span></span></li>
@@ -122,10 +215,14 @@
   <!-- dynamic data code -->
   <script src="./js/script.js"></script>
   <script src="./js/scrollTop.js"></script>
+
+  <script src="./js/progressBar.js"></script>
+
   <script>
     const currentYear = new Date().getFullYear();
     document.getElementById('current-year').textContent = currentYear;
 </script>
+
 </body>
 
 </html>
