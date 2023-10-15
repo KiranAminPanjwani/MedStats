@@ -52,11 +52,32 @@
 
 #navbar ul li {
   cursor: pointer;
+/* ========= update (youtanimstar) start ========= */
+  
+font-weight: 400;
+position: relative;
+font-weight: 700;
+color: var(--color-white);
 }
 
-#navbar ul li:hover {
-  font-style: italic;
+#navbar ul li::before{
+content: '';
+height: 3px;
+width: 0%;
+background-color: var(--color-white);
+position: absolute;
+bottom: -5px;
+left: 50%;
+border-radius: 50px;
+transition: all 0.2s ease;
+
 }
+#navbar ul li:hover::before{
+left: -10%;
+width: 120%;
+
+}
+/* ========= update (youtanimstar) end ========= */
 
 
 body {
