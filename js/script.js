@@ -140,24 +140,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const editButton = recordElement.querySelector('#edit');
-    
+    const saveButton = document.createElement('button');
+    saveButton.style.display = "none";
+    // document.getElementById("save-btn").style.display = "none";
 
     editButton.addEventListener('click', function () {
-      createSaveButton()
+      console.log('workin')
+      saveButton.style.display = "block";
       enterEditMode(recordElement);
-      saveButton.style.display = 'block';
     });
 
     //Creates Save button 
-    function createSaveButton(){
-      const saveButton = document.createElement('button');
+  
+      
       saveButton.textContent = 'Save';
       recordElement.appendChild(saveButton);
       saveButton.addEventListener('click', function () {
         saveChanges(recordElement);
         saveButton.style.display = 'none';
       });
-    }
+    
 
    
 
