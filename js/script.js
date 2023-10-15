@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
     saveButton.style.display = "none";
 
     editButton.addEventListener('click', function () {
-      console.log('workin')
       saveButton.style.display = "block";
       enterEditMode(recordElement);
     });
