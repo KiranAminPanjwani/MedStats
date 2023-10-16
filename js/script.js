@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const symptomsInput = recordElement.querySelector('.record-list li input');
       const medicationsInput = recordElement.querySelectorAll('.record-list li input')[1];
 
-      const patientNameElement = recordElement.querySelector('.record-section-title');
+      const patientNameElement = recordElement.querySelector('.record-section-title span');
       const symptomsElement = recordElement.querySelector('.record-list li');
       const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
 
