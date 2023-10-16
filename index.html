@@ -22,6 +22,12 @@
 
   <link rel="stylesheet" href="./css/scrollTop.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
 </head>
 
 <body>
@@ -41,9 +47,8 @@
       <li><a href="login.html" style="color: white; text-decoration: none;">Login</a></li>
     </ul>
   </nav>
-
   <!-- Section for Adding Health Records -->
-  <div class="container pt-4 mt-5 my-3">
+  <div class="container pt-5 mt-5 my-3">
     <br>
     <p class="text-center" id="subHead1"><b>Personal Health Journal</b></p>
     <hr>
@@ -92,7 +97,7 @@
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Notting <br />
                   💊 Medications : Notting
-                  </p>
+                </p>
               </span>
             </span></div>
         </li>
@@ -106,7 +111,7 @@
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Notting <br />
                   💊 Medications : Notting
-                  </p>
+                </p>
               </span>
             </span></div>
         </li>
@@ -120,7 +125,7 @@
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Fever, High blood pressure<br />
                   💊 Medications : Acetaminophen (Tylenol), Lisinopril
-                  </p>
+                </p>
               </span>
             </span></div>
         </li>
@@ -133,8 +138,8 @@
                 </div>
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Fever Joint, muscle pain<br />
-                  💊 Medications : Acetaminophen (Tylenol), <br/>Ibuprofen (Advil, Motrin)
-                  </p>
+                  💊 Medications : Acetaminophen (Tylenol), <br />Ibuprofen (Advil, Motrin)
+                </p>
               </span>
             </span></div>
         </li>
@@ -148,7 +153,7 @@
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Fever <br />
                   💊 Medications : Acetaminophen (Tylenol)
-                  </p>
+                </p>
               </span>
             </span></div>
         </li>
@@ -162,7 +167,7 @@
                 <hr class="hrPopup" />
                 <p class="pPopup">😷 Symptoms : Fever<br />
                   💊 Medications : Acetaminophen (Tylenol)
-                  </p>
+                </p>
               </span>
           </div>
           </span>
@@ -179,8 +184,8 @@
               <hr class="hrPopup" />
               <p class="pPopup">😷 Symptoms : Notting<br />
                 💊 Medications : Notting
-                </p>
-                
+              </p>
+
             </span>
 
           </div>
@@ -201,14 +206,14 @@
   <footer>
     <p class="text-center1">
       Made by Kiran Amin Panjwani <br>
-      This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.
+      This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>
       </br></br>
     </p>
   </footer>
 
   <!-- Scroll to top button start -->
   <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">
-    <i class="icon-chevron-up"></i>
+    <i class="icon-chevron-up" id="icon-up"></i>
   </button>
   <!-- end -->
 
@@ -221,7 +226,7 @@
   <script>
     const currentYear = new Date().getFullYear();
     document.getElementById('current-year').textContent = currentYear;
-</script>
+  </script>
 
 </body>
 
