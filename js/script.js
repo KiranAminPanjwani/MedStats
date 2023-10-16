@@ -17,7 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </div>
     <div class="record-body">
-        <h4 class="record-section-title">Patient: ${staticPatientName}</h4>
+        <h4 class="record-section-title">Patient:</h4>
+        <ul class="record-list">
+        <li>${staticPatientName}</li>
+         </ul>
+
         <h4 class="record-section-title">Symptoms</h4>
         <ul class="record-list">
             <li>${staticSymptoms}</li>
@@ -68,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         </div>
         <div class="record-body">
-            <h4 class="record-section-title">Patient: ${patientName}</h4>
+            <h4 class="record-section-title">Patient</h4>
+            <ul class="record-list">
+            <li>${patientName}</li>
+            </ul>
             <h4 class="record-section-title">Symptoms</h4>
             <ul class="record-list">
                 <li>${symptoms}</li>
@@ -99,9 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
-      const patientNameElement = recordElement.querySelector('.record-section-title');
-      const symptomsElement = recordElement.querySelector('.record-list li');
-      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
+      console.log(recordElement)
+      const patientNameElement = recordElement.querySelector('.record-body .record-list:nth-child(2) li');
+      const symptomsElement = recordElement.querySelector('.record-body .record-list:nth-child(4) li');
+      const medicationsElement = recordElement.querySelector('.record-body .record-list:nth-child(6) li');
 
       // Create input fields and populate them with the current values
       const patientNameInput = document.createElement('input');
@@ -125,19 +133,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveChanges(recordElement) {
-      const patientNameInput = recordElement.querySelector('.record-section-title input');
-      const symptomsInput = recordElement.querySelector('.record-list li input');
-      const medicationsInput = recordElement.querySelectorAll('.record-list li input')[1];
-
-      const patientNameElement = recordElement.querySelector('.record-section-title');
-      const symptomsElement = recordElement.querySelector('.record-list li');
-      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
-
-      // Update the content with the new values
-      patientNameElement.innerHTML = patientNameInput.value;
-      symptomsElement.innerHTML = symptomsInput.value;
-      medicationsElement.innerHTML = medicationsInput.value;
-    }
+      const patientNameInput = recordElement.querySelector('.record-body .record-list:nth-child(2) input');
+      const symptomsInput = recordElement.querySelector('.record-body .record-list:nth-child(4) input');
+      const medicationsInput = recordElement.querySelector('.record-body .record-list:nth-child(6) input');
+  
+      const patientNameElement = recordElement.querySelector('.record-body .record-list:nth-child(2) li');
+      const symptomsElement = recordElement.querySelector('.record-body .record-list:nth-child(4) li');
+      const medicationsElement = recordElement.querySelector('.record-body .record-list:nth-child(6) li');
+  
+      // Update the content with the new values from the input fields
+      patientNameElement.textContent = patientNameInput.value;
+      symptomsElement.textContent = symptomsInput.value;
+      medicationsElement.textContent = medicationsInput.value;
+  
+     
+  }
+  
 
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
