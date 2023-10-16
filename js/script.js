@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         </div>
         <div class="record-body">
-            <h4 class="record-section-title">Patient: ${patientName}</h4>
+            <h4 class="record-section-title">Patient:<span>${patientName}</span></h4>
             <h4 class="record-section-title">Symptoms</h4>
             <ul class="record-list">
                 <li>${symptoms}</li>
@@ -99,9 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
-      const patientNameElement = recordElement.querySelector('.record-section-title');
+      const patientNameElement = recordElement.querySelector('.record-section-title span');
       const symptomsElement = recordElement.querySelector('.record-list li');
-      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
+      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];     
 
       // Create input fields and populate them with the current values
       const patientNameInput = document.createElement('input');
@@ -125,18 +125,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveChanges(recordElement) {
-      const patientNameInput = recordElement.querySelector('.record-section-title input');
+      const patientNameInput = recordElement.querySelector('.record-section-title span input');
       const symptomsInput = recordElement.querySelector('.record-list li input');
       const medicationsInput = recordElement.querySelectorAll('.record-list li input')[1];
 
-      const patientNameElement = recordElement.querySelector('.record-section-title');
+      const patientNameElement = recordElement.querySelector('.record-section-title span');
       const symptomsElement = recordElement.querySelector('.record-list li');
       const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
 
-      // Update the content with the new values
-      patientNameElement.innerHTML = patientNameInput.value;
-      symptomsElement.innerHTML = symptomsInput.value;
-      medicationsElement.innerHTML = medicationsInput.value;
+      //To check if any of the field is empty
+      if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {       
+        alert("Invalid input: Please enter a non-empty value.");     
+      }
+      else{
+        // Update the content with the new values
+        patientNameElement.innerHTML = patientNameInput.value;
+        symptomsElement.innerHTML = symptomsInput.value;
+        medicationsElement.innerHTML = medicationsInput.value;
+        editButton.style.display = "block"; 
+        saveButton.style.display = 'none'; 
+      }
+      
+      
     }
 
     const editButton = recordElement.querySelector('#edit');
@@ -145,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     editButton.addEventListener('click', function () {
       saveButton.style.display = "block";
+      editButton.style.display = "none";
       enterEditMode(recordElement);
     });
 
@@ -152,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
       recordElement.appendChild(saveButton);
       saveButton.addEventListener('click', function () {
         saveChanges(recordElement);
-        saveButton.style.display = 'none';
+        
       });
     
 
