@@ -1,9 +1,11 @@
-
 <h1 align="center">MedStats</h1>
 
 <h2 align="center"> MedState is an Open Source Personal Health Journal Website.</h2>
 
-MedStats is an innovative Open Source Website constructed with HTML, CSS, JavaScript, and Bootstrap. This platform serves as a Personal Health Journal, empowering users to maintain a comprehensive digital record of their health-related data. With features designed for tracking health progress, documenting symptoms, and recording medications, MedStats offers a seamless and efficient method for individuals to proactively monitor and manage their well-being.
+MedStats is an innovative Open Source Website constructed with HTML, CSS, JavaScript, and Bootstrap. This platform serves as a Personal Health
+Journal, empowering users to maintain a comprehensive digital record of their health-related data. With features designed for tracking health
+progress, documenting symptoms, and recording medications, MedStats offers a seamless and efficient method for individuals to proactively monitor and
+manage their well-being.
 
 ## Key Features for Contribution:
 
@@ -58,25 +60,27 @@ These features collectively form a robust platform, enhancing the user's ability
 ![JS](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 
-# 📌 Contribution Guidelines 🏗 
+# 📌 Contribution Guidelines 🏗
 
-Are we missing any of your favorite features, which you think you can add to it❓ We invite you to contribute to this project and make it better. 
-To start contributing, follow the below guidelines: 
+Are we missing any of your favorite features, which you think you can add to it❓ We invite you to contribute to this project and make it better. To
+start contributing, follow the below guidelines:
 
-**1.**  Fork [this](https://github.com/KiranAminPanjwani/MedStats) repository.
+**1.** Fork [this](https://github.com/KiranAminPanjwani/MedStats) repository.
 
-**2.**  Clone your forked copy of the project.
+**2.** Clone your forked copy of the project.
 
 ```bash
    git clone https://github.com/KiranAminPanjwani/MedStats.git
 ```
 
 **3.** Navigate to the project directory.
+
 ```
    cd MedStats-Website
 ```
 
 **4.** Create a new branch:
+
 ```
    git checkout -b YourBranchName
 ```
@@ -101,42 +105,49 @@ To start contributing, follow the below guidelines:
 **9.** If anyone contribute to this repository, then the changes will not reflect in your local repository. For that:
 
 **10.** Setup a reference(remote) to the original repository to get all the changes from the remote.
+
 ```
    git remote add upstream  https://github.com/KiranAminPanjwani/MedStats
 ```
 
 **11.** Check the remotes for this repository.
+
 ```
    git remote -v
 ```
 
 **12.** Fetching from the remote repository will bring in its branches and their respective commits.
+
 ```
    git fetch upstream
 ```
 
 **13.** Make sure that you're on your master branch.
+
 ```
    git checkout main
 ```
 
-**14.** Now that we have fetched the upstream repository, we want to merge its changes into our local branch. This will bring that branch into sync with the upstream, without losing our local changes.
+**14.** Now that we have fetched the upstream repository, we want to merge its changes into our local branch. This will bring that branch into sync
+with the upstream, without losing our local changes.
+
 ```
    git merge upstream/main
 ```
 
 # Code of Conduct 📜
-	
+
 To maintain a safe and inclusive space for everyone to learn and grow, contributors are advised to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
-	
+
 # Contribution is fun! ❤️
 
-If you have any feedback or suggestions please reach out to me.  
+If you have any feedback or suggestions please reach out to me.
 
-In order to make a hassle-free environment, I implore you all (while contributing) to follow the instructions [Contributing Guidelines](https://github.com/KiranAminPanjwani/MedStats/blob/main/Contributing_Guidlines.md)!
+In order to make a hassle-free environment, I implore you all (while contributing) to follow the instructions
+[Contributing Guidelines](https://github.com/KiranAminPanjwani/MedStats/blob/main/Contributing_Guidlines.md)!
 
-You can create a <a href="https://github.com/KiranAminPanjwani/MedStats/issues">issue</a> and mention there , which new features or extension can make this Project more good.
-
+You can create a <a href="https://github.com/KiranAminPanjwani/MedStats/issues">issue</a> and mention there , which new features or extension can make
+this Project more good.
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 <br>
@@ -146,7 +157,7 @@ You can create a <a href="https://github.com/KiranAminPanjwani/MedStats/issues">
 ### Show some ❤️ by starring⭐ this awesome Repository!
 
 </div>
-  
+
 
 #
 
@@ -160,7 +171,6 @@ You can create a <a href="https://github.com/KiranAminPanjwani/MedStats/issues">
 </p>
 
 #
-	
 
 <h3 align=center> Project Admin ❤️ </h3>
 
@@ -175,4 +185,3 @@ This project is licensed under the [**MIT license**](https://github.com/KiranAmi
   <tbody><tr>
      <td align="center"><a href="https://github.com/KiranAminPanjwani"><img alt="" src="https://user-images.githubusercontent.com/90326051/192037521-3d5fa306-f642-4ae1-a53c-2054f40e2975.png" width="125px;"><br><sub><b> Kiran Panjwani </b></sub></a><br></td> </a></td>
 </tbody></table>
-
