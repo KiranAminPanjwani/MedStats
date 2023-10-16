@@ -152,19 +152,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
+    saveButton.style.display = "none";
 
     editButton.addEventListener('click', function () {
+      saveButton.style.display = "block";
       enterEditMode(recordElement);
-      saveButton.style.display = 'block';
     });
 
-    saveButton.textContent = 'Save';
-    recordElement.appendChild(saveButton);
+      saveButton.textContent = 'Save';
+      recordElement.appendChild(saveButton);
+      saveButton.addEventListener('click', function () {
+        saveChanges(recordElement);
+        saveButton.style.display = 'none';
+      });
+    
 
-    saveButton.addEventListener('click', function () {
-      saveChanges(recordElement);
-      saveButton.style.display = 'none';
-    });
+   
 
 
     // Clear the form fields after adding the record
