@@ -27,7 +27,9 @@
 
 #navbar {
   width: 100vw;
-  background-image: linear-gradient(to right, #b40c57, #bf3370);
+  height: 5rem;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #e90840, #65002c);
   display: flex;
   justify-content: space-between;
 }
