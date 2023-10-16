@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var medications = document.getElementById("MedicationsInput").value;
     var currentDate = new Date().toLocaleDateString();
 
-    if (isInvalidInput(patientName) === "true" || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
+    if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
       alert("Invalid input: Please enter a non-empty value.");
     }
     else {
