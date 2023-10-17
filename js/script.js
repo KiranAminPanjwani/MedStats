@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <h4 class="record-status">Status: Poor</h4>
         </div>
     `;
+
         }
         // Append the new record to the record container
         document.querySelector(".record-container").appendChild(recordElement);
@@ -169,5 +170,42 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("PatientNameInput").value = "";
         document.getElementById("SymptomsInput").value = "";
         document.getElementById("MedicationsInput").value = "";
+
+    }
+    // Append the new record to the record container
+    document.querySelector(".record-container").appendChild(recordElement);
+
+    const closeButton = recordElement.querySelector("#close");
+    const confirmModal = document.getElementById('confirmationModal');
+    
+    // Function to open confirm modal
+    function openConfirmModal(){
+      return new Promise((resolve, reject) => {
+        document.getElementById('confirmDelete').addEventListener('click', function(){         
+          confirmModal.style.display= 'none';
+          resolve(true);
+        });
+        document.getElementById('cancelDelete').addEventListener('click', function(){
+          confirmModal.style.display= 'none';
+          resolve(false);
+        });
+      });
+    }
+    closeButton.addEventListener("click", async function () {
+      
+      confirmModal.style.display= 'flex';
+      const result = await openConfirmModal();
+      console.log(result)
+      if(result){
+        const recordId = recordElement.getAttribute("data-record-id");
+        // Find the record element with the matching identifier and remove it
+        const recordToDelete = document.querySelector(`[data-record-id="${recordId}"]`);
+        if (recordToDelete) {
+          document.querySelector(".record-container").removeChild(recordToDelete);
+        }
+      }
+   
+      
+
     });
 });
