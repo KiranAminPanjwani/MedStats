@@ -14,23 +14,23 @@
     z-index: -1;
     height: 70px;
     width: 100vw;
-}
-.navbar-brand {
+} 
+.navbar-brand{
     margin-left: 22px;
 }
-.container {
+.container{
     top: 23px;
 }
 #subHead1 {
     color: black;
     text-shadow: 2px 2px 4px #888585;
     font-size: 30px;
-}
-.text-center {
+  }
+  .text-center {
     color: #f7000c;
-    text-align: center !important;
-}
-#sign::before {
+    text-align: center!important;
+  }
+  #sign::before{
     content: " ";
     position: absolute;
     /* background-image: linear-gradient(to right, #b40c57, #bf3370); */
@@ -39,11 +39,11 @@
     z-index: -1;
     height: 100vh;
     width: 100vw;
-}
-#sign {
+  }
+  #sign{
     height: 100vh;
-}
-.form-container {
+  }
+  .form-container {
     max-width: 40vw; /* Adjust the maximum width to your preference */
     margin: 0 auto; /* Center the container horizontally */
     /* height: 45vh; */
@@ -53,25 +53,28 @@
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
-}
+    
+    
+  }
 
-.form-container p {
-    text-align: center;
+  .form-container p{
+   text-align: center;
     margin-top: 22px;
-}
-.form-container p a {
+  }
+  .form-container p a{
     color: black;
     text-decoration: underline;
-}
-
-@media screen and (max-width: 1170px) {
+  }
+  
+  @media screen and (max-width: 1170px){
     .form-container {
         max-width: 60vw;
     }
-}
-
-@media screen and (max-width: 771px) {
+  }
+  
+  @media screen and (max-width: 771px){
     .form-container {
         max-width: 80vw;
     }
-}
+  }
+  
