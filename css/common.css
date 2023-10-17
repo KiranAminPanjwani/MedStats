@@ -36,6 +36,9 @@ body {
     scrollbar-color: #b40c57 #bf3370;
     overflow-x: hidden;
     color: var(--color-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body::-webkit-scrollbar {
@@ -58,8 +61,6 @@ body::-webkit-scrollbar-thumb:hover {
     background-image: var(--color-gradient);
     display: flex;
     justify-content: space-between;
-    margin: 24px;
-    border-radius: 12px;
 }
 
 #navbar a {
@@ -100,9 +101,49 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 50px;
     transition: all 0.2s ease;
 }
+
 #navbar ul li:hover::before {
     left: -10%;
     width: 120%;
+}
+
+.main {
+    flex: 1;
+}
+
+.main .container {
+    padding: 1rem;
+}
+
+.main .page-title {
+    color: var(--darkPurple);
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 700px; /* Adjust the maximum width to your preference */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-action {
+    background-color: #b40c57;
+    transition: transform 0.5s ease;
+}
+
+/* Hovering effetc on buttons */
+.btn-action:hover {
+    transform: scale(1.025);
 }
 
 /* Back to Top Button styles */
@@ -180,9 +221,10 @@ footer p {
     margin: 0;
     line-height: 1.5;
     display: flex;
+    flex-direction: column;
     font-size: 18px;
     font: medium;
     text-align: center;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 }

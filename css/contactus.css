@@ -1,19 +1,13 @@
 .contact-form {
-    position: relative;
-    min-height: 100vh;
-    z-index: 0;
-    background: white;
-    padding: 30px;
+    display: flex;
     justify-content: center;
-    display: grid;
-    grid-template-rows: 1fr auto 1fr;
-    align-items: center;
+    align-items: stretch;
 }
 
 .container {
     max-width: 800px;
-    height: 500px;
     margin-top: 0 auto;
+    padding: 30px;
 }
 
 .contact-form h1 {
@@ -30,12 +24,6 @@
     font-weight: 500;
     color: white;
     text-align: center;
-}
-
-.contact-form .main {
-    position: relative;
-    display: flex;
-    margin: 30px 0;
 }
 
 .content {

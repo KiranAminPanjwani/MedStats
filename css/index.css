@@ -2,24 +2,8 @@ input {
     border-color: var(--cyan);
 }
 
-h2 {
-    color: var(--color-gray);
-    font-size: var(--font-size-small);
-    line-height: 1.5;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
 section {
     margin-bottom: 2rem;
-}
-
-/* Applied text shadow to beautify the website */
-#subHead1 {
-    color: var(--darkPurple);
-    font: bold;
-    font-size: 30px;
 }
 
 /* Applied text shadow */
@@ -33,18 +17,6 @@ section {
     color: rgb(0, 0, 0);
     text-shadow: 2px 2px 4px #979494;
     font-size: 18px;
-}
-
-#add-record-btn {
-    /* border: 2px solid grey; */
-    transition: transform 0.5s ease;
-}
-
-/* Hovering effetc on buttons */
-#add-record-btn:hover {
-    background-color: black;
-    color: black;
-    transform: scale(1.025);
 }
 
 .progress-bar {
@@ -263,7 +235,6 @@ section {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
-    background-color: #f8f9fa;
 }
 
 .record {
@@ -383,18 +354,6 @@ button img {
         width: 80%;
         margin: auto;
     }
-}
-
-.form-container {
-    max-width: 500px; /* Adjust the maximum width to your preference */
-    margin: 0 auto; /* Center the container horizontally */
-    height: 220px;
-    padding: 30px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
 }
 
 a button {
