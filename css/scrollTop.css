@@ -36,12 +36,5 @@
 }
 
 #backToTopBtn:hover i {
-    top: -5px;
-}
-
-#icon-up{   
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
-
+    top: -8px;
 }
