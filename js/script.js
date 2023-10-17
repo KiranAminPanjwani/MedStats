@@ -87,14 +87,36 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".record-container").appendChild(recordElement);
 
     const closeButton = recordElement.querySelector("#close");
-    closeButton.addEventListener("click", function () {
-      // Get the unique record identifier associated with the button
-      const recordId = recordElement.getAttribute("data-record-id");
-      // Find the record element with the matching identifier and remove it
-      const recordToDelete = document.querySelector(`[data-record-id="${recordId}"]`);
-      if (recordToDelete) {
-        document.querySelector(".record-container").removeChild(recordToDelete);
+    const confirmModal = document.getElementById('confirmationModal');
+    
+    // Function to open confirm modal
+    function openConfirmModal(){
+      return new Promise((resolve, reject) => {
+        document.getElementById('confirmDelete').addEventListener('click', function(){         
+          confirmModal.style.display= 'none';
+          resolve(true);
+        });
+        document.getElementById('cancelDelete').addEventListener('click', function(){
+          confirmModal.style.display= 'none';
+          resolve(false);
+        });
+      });
+    }
+    closeButton.addEventListener("click", async function () {
+      
+      confirmModal.style.display= 'flex';
+      const result = await openConfirmModal();
+      console.log(result)
+      if(result){
+        const recordId = recordElement.getAttribute("data-record-id");
+        // Find the record element with the matching identifier and remove it
+        const recordToDelete = document.querySelector(`[data-record-id="${recordId}"]`);
+        if (recordToDelete) {
+          document.querySelector(".record-container").removeChild(recordToDelete);
+        }
       }
+   
+      
     });
 
     function enterEditMode(recordElement) {
