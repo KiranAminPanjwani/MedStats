@@ -22,7 +22,6 @@
 
 #backToTopBtn i {
     position: relative;
-    top: 5px;
     font-size: 25px;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s ease;

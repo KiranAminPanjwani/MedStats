@@ -19,17 +19,20 @@
     --font-size-small: 0.75rem;
     --font-size-default: 0.875rem;
     --color-darkgray-disabled: #292b2c;
+    --color-gradient: linear-gradient(138.69deg, #b6195c 0%, #c37b9d 107.33%);
 }
 
 * {
     box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
 }
 
 #navbar {
-    width: 100vw;
-    background-image: linear-gradient(to right, #b40c57, #bf3370);
+    background-image: var(--color-gradient);
     display: flex;
     justify-content: space-between;
+    margin: 24px;
+    border-radius: 12px;
 }
 
 #navbar a {
@@ -45,7 +48,7 @@
     display: flex;
     gap: 35px;
     flex-wrap: wrap;
-    padding-top: 10px;
+    padding-top: 20px;
     margin-right: 5%;
 }
 
@@ -77,7 +80,6 @@
 /* ========= update (youtanimstar) end ========= */
 
 body {
-    font-family: "Open Sans", sans-serif;
     color: var(--color-black);
 }
 
@@ -100,8 +102,8 @@ section {
 
 /* Applied text shadow to beautify the website */
 #subHead1 {
-    color: black;
-    text-shadow: 2px 2px 4px #888585;
+    color: var(--darkPurple);
+    font: bold;
     font-size: 30px;
 }
 
@@ -120,7 +122,6 @@ section {
 
 #add-record-btn {
     /* border: 2px solid grey; */
-    box-shadow: 3px 3px 2px grey;
     transition: transform 0.5s ease;
 }
 
@@ -430,10 +431,12 @@ button img {
 }
 
 .text-center1 {
-    background-color: rgb(179, 172, 172);
+    display: flex;
     font-size: 18px;
-    text-shadow: 2px 2px 4px #979494;
+    font: medium;
     text-align: center;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .record-date {
@@ -471,7 +474,7 @@ button img {
     margin: 0;
     font-size: 1rem;
     font-weight: 600;
-    color: #dc3545;
+    color: var(--color-green);
 }
 
 /* Footer styles */

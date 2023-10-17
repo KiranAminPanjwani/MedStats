@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var medications = document.getElementById("MedicationsInput").value;
         var currentDate = new Date().toLocaleDateString();
 
-        if (isInvalidInput(patientName) === "true" || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
+        if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
             alert("Invalid input: Please enter a non-empty value.");
         } else {
             // Create a new record element with the entered details
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         </div>
         <div class="record-body">
-            <h4 class="record-section-title">Patient: ${patientName}</h4>
+            <h4 class="record-section-title">Patient:<span>${patientName}</span> </h4>
             <h4 class="record-section-title">Symptoms</h4>
             <ul class="record-list">
                 <li>${symptoms}</li>
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function enterEditMode(recordElement) {
             // Get the elements that need to be edited
-            const patientNameElement = recordElement.querySelector(".record-section-title");
+            const patientNameElement = recordElement.querySelector(".record-section-title span");
             const symptomsElement = recordElement.querySelector(".record-list li");
             const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
 
@@ -124,34 +124,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function saveChanges(recordElement) {
-            const patientNameInput = recordElement.querySelector(".record-section-title input");
+            const patientNameInput = recordElement.querySelector(".record-section-title span input");
             const symptomsInput = recordElement.querySelector(".record-list li input");
             const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
 
-            const patientNameElement = recordElement.querySelector(".record-section-title");
+            const patientNameElement = recordElement.querySelector(".record-section-title span");
             const symptomsElement = recordElement.querySelector(".record-list li");
             const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
 
-            // Update the content with the new values
-            patientNameElement.innerHTML = patientNameInput.value;
-            symptomsElement.innerHTML = symptomsInput.value;
-            medicationsElement.innerHTML = medicationsInput.value;
+            //To check if any of the field is empty
+            if (
+                isInvalidInput(patientNameInput.value) === true ||
+                isInvalidInput(symptomsInput.value) == true ||
+                isInvalidInput(medicationsInput.value) == true
+            ) {
+                alert("Invalid input: Please enter a non-empty value.");
+            } else {
+                // Update the content with the new values
+                patientNameElement.innerHTML = patientNameInput.value;
+                symptomsElement.innerHTML = symptomsInput.value;
+                medicationsElement.innerHTML = medicationsInput.value;
+                editButton.style.display = "block";
+                saveButton.style.display = "none";
+            }
         }
 
         const editButton = recordElement.querySelector("#edit");
         const saveButton = document.createElement("button");
+        saveButton.style.display = "none";
 
         editButton.addEventListener("click", function () {
-            enterEditMode(recordElement);
+            editButton.style.display = "none";
             saveButton.style.display = "block";
+            enterEditMode(recordElement);
         });
 
         saveButton.textContent = "Save";
         recordElement.appendChild(saveButton);
-
         saveButton.addEventListener("click", function () {
             saveChanges(recordElement);
-            saveButton.style.display = "none";
         });
 
         // Clear the form fields after adding the record
