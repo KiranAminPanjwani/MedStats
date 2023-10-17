@@ -2,14 +2,12 @@
 
 ## 🛠️ Fixes Issue : ""
 
-<!-- Mention the issue number you have fixed. 
+<!-- Mention the issue number you have fixed.
 Example: 🛠️ Fixes Issue #31 -->
 
 <!-- Remove this section if not applicable -->
 
-
-
-## 👨‍💻 Changes proposed: 
+## 👨‍💻 Changes proposed:
 
 <!-- List all the changes you have made in the project -->
 
@@ -23,10 +21,10 @@ Example: 🛠️ Fixes Issue #31 -->
 [ ] - Not correct; marked as **not** done
 -->
 
-- [ ] My code follows the code style of this project.
-- [ ] This PR does not contain plagiarized content.
-- [ ] The title of my pull request is a short description of the requested changes.
-- [ ] I am a participant of Hacktoberfest 2022.
+-   [ ] My code follows the code style of this project.
+-   [ ] This PR does not contain plagiarized content.
+-   [ ] The title of my pull request is a short description of the requested changes.
+-   [ ] I am a participant of Hacktoberfest 2022.
 
 ## 📄 Note to reviewers
 
