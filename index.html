@@ -8,25 +8,26 @@
 
         <title>MedStats</title>
 
+        <!-- All common fonts here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet" />
+
+        <!-- All common stylesheet here -->
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
             crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./css/common.css" />
 
-        <link rel="stylesheet" href="./css/style.css" />
-        <!-- Your custom CSS file -->
+        <!-- Page specific styles here -->
+        <link rel="stylesheet" href="./css/index.css" />
 
-        <link rel="stylesheet" href="./css/verticalScroll.css" />
-
-        <link rel="stylesheet" href="./css/scrollTop.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-            rel="stylesheet" />
+        <!-- Custom styles here -->
     </head>
 
     <body>
@@ -222,15 +223,19 @@
         </div>
 
         <footer>
-            <p class="text-center1">
+            <p>
                 Made by Kiran Amin Panjwani <br />
-                This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>. <br /><br />
+                This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.
             </p>
+            <script>
+                const currentYear = new Date().getFullYear();
+                document.getElementById("current-year").textContent = currentYear;
+            </script>
         </footer>
 
         <!-- Scroll to top button start -->
         <button onclick="scrollToTop()" id="backToTopBtn" title="Go to top">
-            <i class="icon-chevron-up" id="icon-up"></i>
+            <i class="fa fa-chevron-up" id="icon-up"></i>
         </button>
         <!-- end -->
 
@@ -239,10 +244,5 @@
         <script src="./js/scrollTop.js"></script>
 
         <script src="./js/progressBar.js"></script>
-
-        <script>
-            const currentYear = new Date().getFullYear();
-            document.getElementById("current-year").textContent = currentYear;
-        </script>
     </body>
 </html>
