@@ -382,12 +382,10 @@ body {
 
 .icons {
   display: flex;
-  position: absolute;
-  right: 0px;
-  top: -1px;
+  gap: 0.5rem;
 }
 
-#edit {
+/* #edit {
   border-radius: 90px;
   background-color: white;
   border-color: white;
@@ -411,7 +409,7 @@ body {
   background-color: white;
   border-color: white;
   box-shadow: 1px 1px;
-}
+} */
 
 button img {
   width: 25px;
@@ -434,6 +432,9 @@ button img {
 }
 
 .record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   border-bottom: 1px solid #dee2e6;
 }

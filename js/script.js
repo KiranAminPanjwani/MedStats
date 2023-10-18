@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="record-header">
         <h5 class="record-date">[Static Date]</h5>
         <div class="icons">
-        <button id="edit">✏️</button>
-        <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
-      </div>
+          <button id="edit" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button id="close" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </div>
     </div>
     <div class="record-body">
         <h4 class="record-section-title">Patient: ${staticPatientName}</h4>
@@ -62,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
       recordElement.innerHTML = `
         <div class="record-header">
             <h5 class="record-date">${currentDate}</h5>
-        <div class="icons">
-          <button id="edit">✏️</button>
-          <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
-        </div>
+            <div class="icons">
+              <button id="edit" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button id="close" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </div>
         </div>
         <div class="record-body">
             <h4 class="record-section-title">Patient:<span>${patientName}</span> </h4>
