@@ -642,7 +642,7 @@ a button{
   
 }
 
-.confirmationModal{
+.modal{
   display: flex;
   display: none;
   background-color: rgba(0, 0, 0, 0.4);
@@ -657,7 +657,7 @@ a button{
   flex-direction: column;
 }
 
-.confirmationModal > div {
+.modal > div {
  
   background-color: white;
   border-radius: 10px;
