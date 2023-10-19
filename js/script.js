@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   /** ---- Selectors ---- */
-  // Static data
+  const inputBtn = document.getElementById("MedicalForm");
+
+  /** ---- Variables ---- */
   var staticPatientName = "Patient Name";
   var staticSymptoms = "Static Symptoms";
   var staticMedications = "Static Medications";
   var staticStatus = "Static Status: Excellent"; // You can customize the status as needed
-
-  const inputBtn = document.getElementById("add-record-btn");
-
+  
   // Create a record element for the static data
   var staticRecordElement = document.createElement("div");
   staticRecordElement.className = "record";
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <h4 class="record-status">${staticStatus}</h4>
     </div>
 `;
-
+  let recordObj = [];
+  const RECORDOBJ_KEY = "MyRecords"
   /** ---- FUNCTIONS ---- */
-
-  const drawRecord = (event) => {
+  const drawRecord = (record) => {
     // Create a new record element with the entered details
     var recordElement = document.createElement("div");
     recordElement.className = "record";
@@ -45,27 +45,48 @@ document.addEventListener("DOMContentLoaded", function () {
     recordElement.setAttribute("data-record-id", recordId);
     recordElement.innerHTML = `
       <div class="record-header">
-          <h5 class="record-date">${currentDate}</h5>
+          <h5 class="record-date">${record.currentDate}</h5>
       <div class="icons">
         <button id="edit">✏️</button>
         <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
       </div>
       </div>
       <div class="record-body">
-          <h4 class="record-section-title">Patient:<span>${patientName}</span> </h4>
+          <h4 class="record-section-title">Patient:<span>${record.patientName}</span> </h4>
           <h4 class="record-section-title">Symptoms</h4>
           <ul class="record-list">
-              <li>${symptoms}</li>
+              <li>${record.symptoms}</li>
           </ul>
           <h4 class="record-section-title">Medications</h4>
           <ul class="record-list">
-              <li>${medications}</li>
+              <li>${record.medications}</li>
           </ul>
       </div>
       <div class="record-footer">
           <h4 class="record-status">Status: Poor</h4>
       </div>
   `;
+    // Append the new record to the record container
+    document.querySelector(".record-container").appendChild(recordElement);
+
+    const closeButton = recordElement.querySelector("#close");
+    closeButton.addEventListener("click", function () {
+      // Get the unique record identifier associated with the button
+      const recordId = recordElement.getAttribute("data-record-id");
+      // Find the record element with the matching identifier and remove it
+      const recordToDelete = document.querySelector(
+        `[data-record-id="${recordId}"]`
+      );
+      if (recordToDelete) {
+        document.querySelector(".record-container").removeChild(recordToDelete);
+      }
+    });
+  };
+
+  const saveRecord = (record) => {
+    // Save new record to browser's local storage
+    recordObj.push(record);
+    localStorage.setItem(RECORDOBJ_KEY,JSON.stringify(recordObj));
   };
 
   const saveChanges = (recordElement) => {
@@ -100,9 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
       saveButton.style.display = "none";
     }
   };
-  const saveRecord = (event) => {
-    // Save new record to browser's local storage
-  };
 
   const onRecordSubmit = (event) => {
     event.preventDefault();
@@ -126,25 +144,15 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       alert("Invalid input: Please enter a non-empty value.");
     } else {
-      drawRecord();
-      saveRecord();
+      const newRecord = {
+        patientName,
+        symptoms,
+        medications,
+        currentDate,
+      };
+      drawRecord(newRecord); //draw record on screen
+      saveRecord(newRecord); //save record to
     }
-
-    // Append the new record to the record container
-    document.querySelector(".record-container").appendChild(recordElement);
-
-    const closeButton = recordElement.querySelector("#close");
-    closeButton.addEventListener("click", function () {
-      // Get the unique record identifier associated with the button
-      const recordId = recordElement.getAttribute("data-record-id");
-      // Find the record element with the matching identifier and remove it
-      const recordToDelete = document.querySelector(
-        `[data-record-id="${recordId}"]`
-      );
-      if (recordToDelete) {
-        document.querySelector(".record-container").removeChild(recordToDelete);
-      }
-    });
 
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
@@ -174,38 +182,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
       medicationsElement.innerHTML = "";
       medicationsElement.appendChild(medicationsInput);
-    }
 
-    saveChanges(recordElement);
-
-    const editButton = recordElement.querySelector("#edit");
-    const saveButton = document.createElement("button");
-    saveButton.style.display = "none";
-
-    editButton.addEventListener("click", function () {
-      editButton.style.display = "none";
-      saveButton.style.display = "block";
-      enterEditMode(recordElement);
-    });
-
-    saveButton.textContent = "Save";
-    recordElement.appendChild(saveButton);
-    saveButton.addEventListener("click", function () {
       saveChanges(recordElement);
-    });
 
-    // Clear the form fields after adding the record
-    document.getElementById("PatientNameInput").value = "";
-    document.getElementById("SymptomsInput").value = "";
-    document.getElementById("MedicationsInput").value = "";
+      const editButton = recordElement.querySelector("#edit");
+      const saveButton = document.createElement("button");
+      saveButton.style.display = "none";
+
+      editButton.addEventListener("click", function () {
+        editButton.style.display = "none";
+        saveButton.style.display = "block";
+        enterEditMode(recordElement);
+      });
+
+      saveButton.textContent = "Save";
+      recordElement.appendChild(saveButton);
+      saveButton.addEventListener("click", function () {
+        saveChanges(recordElement);
+      });
+
+      // Clear the form fields after adding the record
+      document.getElementById("PatientNameInput").value = "";
+      document.getElementById("SymptomsInput").value = "";
+      document.getElementById("MedicationsInput").value = "";
+    }
   };
 
   // Append the static record to the record container
   document.querySelector(".record-container").appendChild(staticRecordElement);
 
-  /** ---- Event Listners ---- */
 
-  // Event listener for adding dynamic records
+  /** ---- Event Listners ---- */
   inputBtn.addEventListener("submit", (event) => {
     onRecordSubmit(event);
   });
