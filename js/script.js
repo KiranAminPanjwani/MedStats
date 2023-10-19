@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var staticSymptoms = "Static Symptoms";
   var staticMedications = "Static Medications";
   var staticStatus = "Static Status: Excellent"; // You can customize the status as needed
-  
+
   // Create a record element for the static data
   var staticRecordElement = document.createElement("div");
   staticRecordElement.className = "record";
@@ -34,8 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <h4 class="record-status">${staticStatus}</h4>
     </div>
 `;
+  // Append the static record to the record container
+  document.querySelector(".record-container").appendChild(staticRecordElement);
+
   let recordObj = [];
-  const RECORDOBJ_KEY = "MyRecords"
+  const RECORDOBJ_KEY = "MyRecords";
   /** ---- FUNCTIONS ---- */
   const drawRecord = (record) => {
     // Create a new record element with the entered details
@@ -86,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveRecord = (record) => {
     // Save new record to browser's local storage
     recordObj.push(record);
-    localStorage.setItem(RECORDOBJ_KEY,JSON.stringify(recordObj));
+    localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
   };
 
   const saveChanges = (recordElement) => {
@@ -150,8 +153,8 @@ document.addEventListener("DOMContentLoaded", function () {
         medications,
         currentDate,
       };
-      drawRecord(newRecord); //draw record on screen
-      saveRecord(newRecord); //save record to
+      drawRecord(newRecord); //draw record on the screen
+      saveRecord(newRecord); //save record to the localstorage
     }
 
     function enterEditMode(recordElement) {
@@ -207,10 +210,14 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("MedicationsInput").value = "";
     }
   };
-
-  // Append the static record to the record container
-  document.querySelector(".record-container").appendChild(staticRecordElement);
-
+  /** ---- On startup ---- */
+  //Check the existence of the localstorage value and draw them on the screen
+  const savedRecordObj = localStorage.getItem(RECORDOBJ_KEY);
+  if (savedRecordObj !== null) {
+    const parsedSavedRecordObj = JSON.parse(savedRecordObj);
+    parsedSavedRecordObj.forEach((item) => drawRecord(item));
+    recordObj = parsedSavedRecordObj;
+  }
 
   /** ---- Event Listners ---- */
   inputBtn.addEventListener("submit", (event) => {
