@@ -147,32 +147,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const onRecordSubmit = (event) => {
     event.preventDefault();
 
-    
-
     // Get values from the form
-    var patientName = document.getElementById("PatientNameInput").value;
-    var symptoms = document.getElementById("SymptomsInput").value;
-    var medications = document.getElementById("MedicationsInput").value;
+    var patientName = document.getElementById("PatientNameInput");
+    var symptoms = document.getElementById("SymptomsInput");
+    var medications = document.getElementById("MedicationsInput");
     var currentDate = new Date().toLocaleDateString();
-
+    console.log(patientName.value);
     //To check if any of the field is empty
     if (
-      isInvalidInput(patientName) === true ||
-      isInvalidInput(symptoms) == true ||
-      isInvalidInput(medications) == true
+      isInvalidInput(patientName.value) === true ||
+      isInvalidInput(symptoms.value) == true ||
+      isInvalidInput(medications.value) == true
     ) {
       alert("Invalid input: Please enter a non-empty value.");
     } else {
       const newRecord = {
-        patientName,
-        symptoms,
-        medications,
+        patientName : patientName.value,
+        symptoms : symptoms.value,
+        medications : medications.value,
         currentDate,
         id: Date.now()
       };
       drawRecord(newRecord); //draw record on the screen
       saveRecord(newRecord); //save record to the localstorage
+
+      //empty input field after saving
+      patientName.value = '';
+      symptoms.value = '';
+      medications.value = '';
     }
+
   };
 
   /** ---- On startup ---- */
