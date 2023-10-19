@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".record-container").appendChild(staticRecordElement);
 
   // Event listener for adding dynamic records
-  document.getElementById("add-record-btn").addEventListener("click", function (event) {
+  document.getElementById("add-record-btn").addEventListener("submit", function (event) {
     event.preventDefault();
 
     function isInvalidInput(input) {
