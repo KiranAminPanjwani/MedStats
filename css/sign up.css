@@ -26,10 +26,15 @@
     text-shadow: 2px 2px 4px #888585;
     font-size: 30px;
   }
-  .text-center {
-    color: #f7000c;
-    text-align: center!important;
+  .text-center1 {
+    display: flex;
+    font-size: 18px;
+    font: medium;
+    text-align: center;
+    align-items: flex-end;
+    justify-content: center;
   }
+  
   #sign::before{
     content: " ";
     position: absolute;
@@ -55,6 +60,39 @@
     margin-top: 50px;
     
     
+  }
+
+  footer {
+    background-color: #333;
+    /* Background color */
+    color: #fff;
+    /* Text color */
+    padding: 20px 0;
+    /* Padding for top and bottom */
+    text-align: center;
+    /* Center-align text */
+    font-size: 14px;
+    /* Font size */
+  }
+  
+  footer a {
+    color: #b40c57;
+    /* Link color */
+    text-decoration: none;
+    /* Remove underline */
+    transition: color 0.3s;
+    /* Smooth color transition on hover */
+  }
+  
+  footer a:hover {
+    color: #fff;
+    /* Change link color on hover */
+  }
+  
+  /* Center the text vertically */
+  footer p {
+    margin: 0;
+    line-height: 1.5;
   }
 
   .form-container p{
