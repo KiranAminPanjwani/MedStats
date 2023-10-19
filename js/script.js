@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const RECORDOBJ_KEY = "MyRecords";
 
   /** ---- FUNCTIONS ---- */
-  const isInvalidInput=(input) => {
+  const isInvalidInput = (input) => {
     const pattern = /^\s*$/;
     return pattern.test(input);
   };
@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <h4 class="record-status">Status: Poor</h4>
       </div>
   `;
+  recordElement.querySelector(".edit").addEventListener("click", enterEditMode);
+  recordElement.querySelector(".delete").addEventListener("click", deleteRecord);
+  recordElement.querySelector(".save").addEventListener("click", saveEditedRecord);
 
     // Append the new record to the record container
     document.querySelector(".record-container").appendChild(recordElement);
@@ -59,30 +62,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /** 2.Delete from the localstorage */
-    recordObj = recordObj.filter((item)=>item.id !== parseInt(recordElement.getAttribute("data-record-id")));
+    recordObj = recordObj.filter(
+      (item) =>
+        item.id !== parseInt(recordElement.getAttribute("data-record-id"))
+    );
     localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
   };
-  const saveRecord = (record) => {
+  const saveNewRecord = (record) => {
     // Save new record to browser's local storage
     recordObj.push(record);
     localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
   };
 
   const saveChanges = (recordElement) => {
-    const patientNameInput = recordElement.querySelector(
-      ".record-section-title span input"
-    );
+    const patientNameInput = recordElement.querySelector(".record-section-title span input");
     const symptomsInput = recordElement.querySelector(".record-list li input");
-    const medicationsInput = recordElement.querySelectorAll(
-      ".record-list li input"
-    )[1];
+    const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
 
-    const patientNameElement = recordElement.querySelector(
-      ".record-section-title span"
-    );
+    const patientNameElement = recordElement.querySelector(".record-section-title span");
     const symptomsElement = recordElement.querySelector(".record-list li");
-    const medicationsElement =
-      recordElement.querySelectorAll(".record-list li")[1];
+    const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
 
     //To check if any of the field is empty
     if (
@@ -96,52 +95,84 @@ document.addEventListener("DOMContentLoaded", function () {
       patientNameElement.innerHTML = patientNameInput.value;
       symptomsElement.innerHTML = symptomsInput.value;
       medicationsElement.innerHTML = medicationsInput.value;
-      // editButton.style.display = "block";
-      // saveButton.style.display = "none";
+  
     }
   };
-  const enterEditMode = (recordElement) => {
-    console.log(recordElement);
-    // Get the elements that need to be edited
-    const patientNameElement = recordElement.querySelector(
-      ".record-section-title span"
-    );
-    const symptomsElement = recordElement.querySelector(".record-list li");
-    const medicationsElement =
-      recordElement.querySelectorAll(".record-list li")[1];
-
-    // Create input fields and populate them with the current values
-    const patientNameInput = document.createElement("input");
-    patientNameInput.value = patientNameElement.textContent;
-
-    const symptomsInput = document.createElement("input");
-    symptomsInput.value = symptomsElement.textContent;
-
-    const medicationsInput = document.createElement("input");
-    medicationsInput.value = medicationsElement.textContent;
-
-    // Replace the content with input fields
-    patientNameElement.innerHTML = "";
-    patientNameElement.appendChild(patientNameInput);
-
-    symptomsElement.innerHTML = "";
-    symptomsElement.appendChild(symptomsInput);
-
-    medicationsElement.innerHTML = "";
-    medicationsElement.appendChild(medicationsInput);
-
-
-  }
   const saveEditedRecord = (event) => {
+    var recordElement = event.target.closest(".record");
+    var recordId = recordElement.getAttribute("data-record-id");
 
+    /** 1.Edit from the screen */
+    const patientNameInput = recordElement.querySelector(".record-section-title span input");
+    const symptomsInput = recordElement.querySelector(".record-list li input");
+    const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
+    const patientNameElement = recordElement.querySelector(".record-section-title span");
+    const symptomsElement = recordElement.querySelector(".record-list li");
+    const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
+
+
+    //To check if any of the field is empty
+    if (
+      isInvalidInput(patientNameInput.value) === true ||
+      isInvalidInput(symptomsInput.value) == true ||
+      isInvalidInput(medicationsInput.value) == true
+    ) {
+      alert("Invalid input: Please enter a non-empty value.");
+    } else {
+      // Update the content with the new values
+      patientNameElement.innerHTML = patientNameInput.value;
+      symptomsElement.innerHTML = symptomsInput.value;
+      medicationsElement.innerHTML = medicationsInput.value;
+
+      var thisRecord = event.target.closest("div");
+      thisRecord.querySelector(".save").style.display = "none";
+      thisRecord.querySelector(".edit").style.display = "block";
+    }
+
+    /** 2.Edit from the localstorage */
+    const recordToEdit = recordObj.find(({ id }) => id == recordId);
+    if (recordToEdit) {
+      recordToEdit.patientName = patientNameInput.value;
+      recordToEdit.symptoms = symptomsInput.value;
+      recordToEdit.medications = medicationsInput.value;
+    }
+    localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
   };
-  const editRecord = (event) => {
+  const enterEditMode = (event) => {
     event.target.style.display = "none";
     var thisRecord = event.target.closest("div");
     thisRecord.querySelector(".save").style.display = "block";
-    
+
     var recordElement = event.target.closest(".record");
-    enterEditMode(recordElement);
+    
+        // Get the elements that need to be edited
+        const patientNameElement = recordElement.querySelector(
+          ".record-section-title span"
+        );
+        const symptomsElement = recordElement.querySelector(".record-list li");
+        const medicationsElement =
+          recordElement.querySelectorAll(".record-list li")[1];
+    
+        // Create input fields and populate them with the current values
+        const patientNameInput = document.createElement("input");
+        patientNameInput.value = patientNameElement.textContent;
+    
+        const symptomsInput = document.createElement("input");
+        symptomsInput.value = symptomsElement.textContent;
+    
+        const medicationsInput = document.createElement("input");
+        medicationsInput.value = medicationsElement.textContent;
+    
+        // Replace the content with input fields
+        patientNameElement.innerHTML = "";
+        patientNameElement.appendChild(patientNameInput);
+    
+        symptomsElement.innerHTML = "";
+        symptomsElement.appendChild(symptomsInput);
+    
+        medicationsElement.innerHTML = "";
+        medicationsElement.appendChild(medicationsInput);
+
   };
 
   const onRecordSubmit = (event) => {
@@ -162,21 +193,20 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Invalid input: Please enter a non-empty value.");
     } else {
       const newRecord = {
-        patientName : patientName.value,
-        symptoms : symptoms.value,
-        medications : medications.value,
+        patientName: patientName.value,
+        symptoms: symptoms.value,
+        medications: medications.value,
         currentDate,
-        id: Date.now()
+        id: Date.now(),
       };
       drawRecord(newRecord); //draw record on the screen
-      saveRecord(newRecord); //save record to the localstorage
+      saveNewRecord(newRecord); //save record to the localstorage
 
       //empty input field after saving
-      patientName.value = '';
-      symptoms.value = '';
-      medications.value = '';
+      patientName.value = "";
+      symptoms.value = "";
+      medications.value = "";
     }
-
   };
 
   /** ---- On startup ---- */
@@ -197,12 +227,12 @@ document.addEventListener("DOMContentLoaded", function () {
     onRecordSubmit(event);
   });
   editButtons.forEach((editButton) => {
-    editButton.addEventListener("click", editRecord);
+    editButton.addEventListener("click", enterEditMode);
   });
   deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener("click", deleteRecord);
   });
   saveButtons.forEach((saveButton) => {
-    saveButton.addEventListener("click", saveEditedRecord);
+    saveButton.addEventListener("click",saveEditedRecord);
   });
 });
