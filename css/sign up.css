@@ -103,7 +103,10 @@
     color: black;
     text-decoration: underline;
   }
+  .is-invalid {
+    border-color: #dc3545; /* Red border color */
   
+  }
   @media screen and (max-width: 1170px){
     .form-container {
         max-width: 60vw;
