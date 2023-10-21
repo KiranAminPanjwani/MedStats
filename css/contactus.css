@@ -6,20 +6,31 @@
 
 .contact-form {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   z-index: 0;
-  background: white;
-  padding: 30px;
+  background: rgb(246, 242, 242);
+  padding-top: 15rem;
   justify-content: center;
   display: grid;
   grid-template-rows: 1fr auto 1fr;
   align-items: center;
 }
 
+input::placeholder{
+  color: white;
+}
+textarea::placeholder{
+  color: white;
+}
 .container {
+
+  display: flex;
   max-width: 800px;
-  height: 500px;
-  margin-top: 0 auto;
+  height: auto;
+  box-shadow: 6px 6px 30px #b40955;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 15px;
 }
 
 .contact-form h1 {
@@ -42,14 +53,12 @@
 .contact-form .main {
   position: relative;
   display: flex;
-  margin: 30px 0;
 }
 
 .content {
   flex-basis: 50%;
   padding: 3em 3em;
   background-color: #b40955;
-  box-shadow: 2px 9px 49px -17px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -71,10 +80,9 @@
 }
 
 .btn,
-button,
 input,
 textarea {
-  border-radius: 25px;
+  border-radius: 12px;
 }
 
 .btn:hover,
@@ -84,22 +92,22 @@ button:hover {
   transition: 0.5s ease;
 }
 
-.contact-form form {
+/* .contact-form form {
   margin: 30px 0;
-}
+} */
 
 .contact-form input,
 textarea {
   outline: none;
   margin-bottom: 15px;
   font-stretch: 16px;
-  color: black;
+  color: rgb(254, 254, 254);
   padding: 14px 20px;
   width: 100%;
   display: inline-block;
   box-sizing: border-box;
   border: none;
-  background-color: #f0f4f8;
+  background-color: #252324;
   transform: 0.3s ease;
 }
 
@@ -108,7 +116,13 @@ textarea {
   resize: none;
 }
 
-.contact-form input:focus {
+.contact-form input:hover {
+  background: white;
+  border: 1px solid white;
+  
+
+}
+.contact-form textarea:hover {
   background: white;
   border: 1px solid white;
 
@@ -117,11 +131,14 @@ textarea {
 .contact-form button {
   font-size: 18px;
   color: white;
-  width: 100%;
-  background: #dd5e93;
+  width: 120px;
+  background: #0c090b;
   font-weight: 600;
   transition: 0.3s ease;
   padding: 10px 15px;
+  border-radius: 50px;
+  margin-left: 26%;
+
 }
 
 @media (max-width: 800px) {
@@ -139,3 +156,10 @@ textarea {
     display: none;
   }
 }
+
+.textcontact{
+  text-shadow: 4px 4px 1px rgb(44, 44, 44);
+  padding-bottom: 20px;
+}
+
+
