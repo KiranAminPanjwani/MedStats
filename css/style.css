@@ -382,6 +382,15 @@ body {
 
 .icons {
   display: flex;
+
+  gap: 0.5rem;
+}
+
+/* #edit {
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+
 }
 
 #edit, #close {
@@ -393,9 +402,17 @@ body {
 
 #edit:hover,
 #close:hover {
+
+  border-radius: 90px;
+  background-color: white;
+  border-color: white;
+  box-shadow: 1px 1px;
+} */
+
   transition: 0.15s;
   scale: 1.07;
 }
+
 
 .savebtn{
   background-color: #b40c57;
