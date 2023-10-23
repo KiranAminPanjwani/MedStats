@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var currentDate = new Date().toLocaleDateString();
 
     if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     }
     else {
       // Create a new record element with the entered details
@@ -102,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     }
+
+
     closeButton.addEventListener("click", async function () {
       
       confirmModal.style.display= 'flex';
@@ -119,6 +121,19 @@ document.addEventListener("DOMContentLoaded", function () {
       
     });
 
+    // modal for any message
+    function messageModal(message){
+      const modal =  document.getElementById('messageModal')
+      modal.style.display = "flex";
+
+      const messageElement = document.getElementById('messageModalText')
+      messageElement.textContent = message;
+      
+      document.getElementById('acknowledgmentBtn').addEventListener('click',function(){
+        modal.style.display = "none";
+      });
+    }
+
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
       const patientNameElement = recordElement.querySelector('.record-section-title span');
@@ -127,12 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create input fields and populate them with the current values
       const patientNameInput = document.createElement('input');
+      patientNameInput.classList.add('form-control');
       patientNameInput.value = patientNameElement.textContent;
 
       const symptomsInput = document.createElement('input');
+      symptomsInput.classList.add('form-control');
       symptomsInput.value = symptomsElement.textContent;
 
       const medicationsInput = document.createElement('input');
+      medicationsInput.classList.add('form-control');
       medicationsInput.value = medicationsElement.textContent;
 
       // Replace the content with input fields
@@ -157,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
        //To check if any of the field is empty
        if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {       
-        alert("Invalid input: Please enter a non-empty value.");     
+        messageModal("Invalid input: Please enter a non-empty value.");
       }
       else{
         // Update the content with the new values
@@ -171,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
+    saveButton.classList.add('btn', 'text-light', 'btn-large', 'btn-block','savebtn');
     saveButton.style.display = "none";
 
     editButton.addEventListener('click', function () {

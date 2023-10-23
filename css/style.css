@@ -88,7 +88,7 @@ body {
 }
 
 input {
-  border-color: var(--cyan);
+  border-color: var(--cyan); 
 }
 
 h2 {
@@ -382,6 +382,7 @@ body {
 
 .icons {
   display: flex;
+
   gap: 0.5rem;
 }
 
@@ -389,31 +390,32 @@ body {
   border-radius: 90px;
   background-color: white;
   border-color: white;
+
 }
 
-#edit:hover {
-  border-radius: 90px;
-  background-color: white;
-  border-color: white;
-  box-shadow: 1px 1px;
+#edit, #close {
+  background: transparent;
+  transition: 0.15s;
+  outline: none;
+  border: none;
 }
 
-#close {
-  border-radius: 90px;
-  background-color: white;
-  border-color: white;
-}
-
+#edit:hover,
 #close:hover {
+
   border-radius: 90px;
   background-color: white;
   border-color: white;
   box-shadow: 1px 1px;
 } */
 
-button img {
-  width: 25px;
-  height: 25px;
+  transition: 0.15s;
+  scale: 1.07;
+}
+
+
+.savebtn{
+  background-color: #b40c57;
 }
 
 button img {
@@ -422,12 +424,6 @@ button img {
 }
 
 .record:hover {
-
-  .record-header,
-  .record-footer {
-    background-color: rgb(187, 185, 185);
-  }
-
   transform: scale(1.05);
 }
 
@@ -465,6 +461,9 @@ button img {
   font-size: 1.25rem;
   font-weight: 600;
   color: #343a40;
+}
+.record-section-title span{
+  margin-left: 5px;
 }
 
 .record-list {
@@ -643,7 +642,7 @@ a button{
   
 }
 
-.confirmationModal{
+.modal{
   display: flex;
   display: none;
   background-color: rgba(0, 0, 0, 0.4);
@@ -658,7 +657,7 @@ a button{
   flex-direction: column;
 }
 
-.confirmationModal > div {
+.modal > div {
  
   background-color: white;
   border-radius: 10px;
