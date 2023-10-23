@@ -142,12 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create input fields and populate them with the current values
       const patientNameInput = document.createElement('input');
+      patientNameInput.classList.add('form-control');
       patientNameInput.value = patientNameElement.textContent;
 
       const symptomsInput = document.createElement('input');
+      symptomsInput.classList.add('form-control');
       symptomsInput.value = symptomsElement.textContent;
 
       const medicationsInput = document.createElement('input');
+      medicationsInput.classList.add('form-control');
       medicationsInput.value = medicationsElement.textContent;
 
       // Replace the content with input fields
@@ -186,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
+    saveButton.classList.add('btn', 'text-light', 'btn-large', 'btn-block','savebtn');
     saveButton.style.display = "none";
 
     editButton.addEventListener('click', function () {
