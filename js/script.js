@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var currentDate = new Date().toLocaleDateString();
 
     if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     }
     else {
       // Create a new record element with the entered details
@@ -102,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     }
+
+
     closeButton.addEventListener("click", async function () {
       
       confirmModal.style.display= 'flex';
@@ -118,6 +120,19 @@ document.addEventListener("DOMContentLoaded", function () {
    
       
     });
+
+    // modal for any message
+    function messageModal(message){
+      const modal =  document.getElementById('messageModal')
+      modal.style.display = "flex";
+
+      const messageElement = document.getElementById('messageModalText')
+      messageElement.textContent = message;
+      
+      document.getElementById('acknowledgmentBtn').addEventListener('click',function(){
+        modal.style.display = "none";
+      });
+    }
 
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
@@ -157,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
        //To check if any of the field is empty
        if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {       
-        alert("Invalid input: Please enter a non-empty value.");     
+        messageModal("Invalid input: Please enter a non-empty value.");
       }
       else{
         // Update the content with the new values
