@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="record-header">
         <h5 class="record-date">[Static Date]</h5>
         <div class="icons">
-        <button id="edit">✏️</button>
-        <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
-      </div>
+          <button id="edit" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button id="close" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </div>
     </div>
     <div class="record-body">
         <h4 class="record-section-title">Patient: ${staticPatientName}</h4>
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var currentDate = new Date().toLocaleDateString();
 
     if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     }
     else {
       // Create a new record element with the entered details
@@ -62,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
       recordElement.innerHTML = `
         <div class="record-header">
             <h5 class="record-date">${currentDate}</h5>
-        <div class="icons">
-          <button id="edit">✏️</button>
-          <button id="close"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
-        </div>
+            <div class="icons">
+              <button id="edit" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button id="close" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+            </div>
         </div>
         <div class="record-body">
             <h4 class="record-section-title">Patient:<span>${patientName}</span> </h4>
@@ -102,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     }
+
+
     closeButton.addEventListener("click", async function () {
       
       confirmModal.style.display= 'flex';
@@ -119,6 +121,19 @@ document.addEventListener("DOMContentLoaded", function () {
       
     });
 
+    // modal for any message
+    function messageModal(message){
+      const modal =  document.getElementById('messageModal')
+      modal.style.display = "flex";
+
+      const messageElement = document.getElementById('messageModalText')
+      messageElement.textContent = message;
+      
+      document.getElementById('acknowledgmentBtn').addEventListener('click',function(){
+        modal.style.display = "none";
+      });
+    }
+
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
       const patientNameElement = recordElement.querySelector('.record-section-title span');
@@ -127,12 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Create input fields and populate them with the current values
       const patientNameInput = document.createElement('input');
+      patientNameInput.classList.add('form-control');
       patientNameInput.value = patientNameElement.textContent;
 
       const symptomsInput = document.createElement('input');
+      symptomsInput.classList.add('form-control');
       symptomsInput.value = symptomsElement.textContent;
 
       const medicationsInput = document.createElement('input');
+      medicationsInput.classList.add('form-control');
       medicationsInput.value = medicationsElement.textContent;
 
       // Replace the content with input fields
@@ -157,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
        //To check if any of the field is empty
        if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {       
-        alert("Invalid input: Please enter a non-empty value.");     
+        messageModal("Invalid input: Please enter a non-empty value.");
       }
       else{
         // Update the content with the new values
@@ -171,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editButton = recordElement.querySelector('#edit');
     const saveButton = document.createElement('button');
+    saveButton.classList.add('btn', 'text-light', 'btn-large', 'btn-block','savebtn');
     saveButton.style.display = "none";
 
     editButton.addEventListener('click', function () {
