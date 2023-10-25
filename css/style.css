@@ -80,6 +80,7 @@ left: -10%;
 width: 120%;
 
 }
+
 /* ========= update (youtanimstar) end ========= */
 
 
@@ -409,9 +410,9 @@ body {
   box-shadow: 1px 1px;
 } */
 
-  transition: 0.15s;
+  /* transition: 0.15s;
   scale: 1.07;
-}
+} */
 
 
 .savebtn{
@@ -688,3 +689,4 @@ a button{
   font-size: 16px;
   border-radius: 5px;
 }
+
