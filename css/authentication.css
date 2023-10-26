@@ -1,0 +1,33 @@
+
+
+.form-container {
+  max-width: 40vw; /* Adjust the maximum width to your preference */
+  margin: 0 auto; /* Center the container horizontally */
+  /* height: 45vh; */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container p {
+  text-align: center;
+  margin-top: 22px;
+}
+.form-container p a {
+  color: black;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1170px) {
+  .form-container {
+    max-width: 60vw;
+  }
+}
+
+@media screen and (max-width: 771px) {
+  .form-container {
+    max-width: 80vw;
+  }
+}

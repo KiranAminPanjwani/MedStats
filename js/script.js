@@ -52,8 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isInvalidInput(patientName) === true || isInvalidInput(symptoms) == true || isInvalidInput(medications) == true) {
       messageModal("Invalid input: Please enter a non-empty value.");
-    }
-    else {
+    } else {
       // Create a new record element with the entered details
       var recordElement = document.createElement("div");
       recordElement.className = "record";
@@ -87,29 +86,27 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".record-container").appendChild(recordElement);
 
     const closeButton = recordElement.querySelector("#close");
-    const confirmModal = document.getElementById('confirmationModal');
-    
+    const confirmModal = document.getElementById("confirmationModal");
+
     // Function to open confirm modal
-    function openConfirmModal(){
+    function openConfirmModal() {
       return new Promise((resolve, reject) => {
-        document.getElementById('confirmDelete').addEventListener('click', function(){         
-          confirmModal.style.display= 'none';
+        document.getElementById("confirmDelete").addEventListener("click", function () {
+          confirmModal.style.display = "none";
           resolve(true);
         });
-        document.getElementById('cancelDelete').addEventListener('click', function(){
-          confirmModal.style.display= 'none';
+        document.getElementById("cancelDelete").addEventListener("click", function () {
+          confirmModal.style.display = "none";
           resolve(false);
         });
       });
     }
 
-
     closeButton.addEventListener("click", async function () {
-      
-      confirmModal.style.display= 'flex';
+      confirmModal.style.display = "flex";
       const result = await openConfirmModal();
-      console.log(result)
-      if(result){
+      console.log(result);
+      if (result) {
         const recordId = recordElement.getAttribute("data-record-id");
         // Find the record element with the matching identifier and remove it
         const recordToDelete = document.querySelector(`[data-record-id="${recordId}"]`);
@@ -117,97 +114,89 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector(".record-container").removeChild(recordToDelete);
         }
       }
-   
-      
     });
 
     // modal for any message
-    function messageModal(message){
-      const modal =  document.getElementById('messageModal')
+    function messageModal(message) {
+      const modal = document.getElementById("messageModal");
       modal.style.display = "flex";
 
-      const messageElement = document.getElementById('messageModalText')
+      const messageElement = document.getElementById("messageModalText");
       messageElement.textContent = message;
-      
-      document.getElementById('acknowledgmentBtn').addEventListener('click',function(){
+
+      document.getElementById("acknowledgmentBtn").addEventListener("click", function () {
         modal.style.display = "none";
       });
     }
 
     function enterEditMode(recordElement) {
       // Get the elements that need to be edited
-      const patientNameElement = recordElement.querySelector('.record-section-title span');
-      const symptomsElement = recordElement.querySelector('.record-list li');
-      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
+      const patientNameElement = recordElement.querySelector(".record-section-title span");
+      const symptomsElement = recordElement.querySelector(".record-list li");
+      const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
 
       // Create input fields and populate them with the current values
-      const patientNameInput = document.createElement('input');
-      patientNameInput.classList.add('form-control');
+      const patientNameInput = document.createElement("input");
+      patientNameInput.classList.add("form-control");
       patientNameInput.value = patientNameElement.textContent;
 
-      const symptomsInput = document.createElement('input');
-      symptomsInput.classList.add('form-control');
+      const symptomsInput = document.createElement("input");
+      symptomsInput.classList.add("form-control");
       symptomsInput.value = symptomsElement.textContent;
 
-      const medicationsInput = document.createElement('input');
-      medicationsInput.classList.add('form-control');
+      const medicationsInput = document.createElement("input");
+      medicationsInput.classList.add("form-control");
       medicationsInput.value = medicationsElement.textContent;
 
       // Replace the content with input fields
-      patientNameElement.innerHTML = '';
+      patientNameElement.innerHTML = "";
       patientNameElement.appendChild(patientNameInput);
 
-      symptomsElement.innerHTML = '';
+      symptomsElement.innerHTML = "";
       symptomsElement.appendChild(symptomsInput);
 
-      medicationsElement.innerHTML = '';
+      medicationsElement.innerHTML = "";
       medicationsElement.appendChild(medicationsInput);
     }
 
     function saveChanges(recordElement) {
-      const patientNameInput = recordElement.querySelector('.record-section-title span input');
-      const symptomsInput = recordElement.querySelector('.record-list li input');
-      const medicationsInput = recordElement.querySelectorAll('.record-list li input')[1];
+      const patientNameInput = recordElement.querySelector(".record-section-title span input");
+      const symptomsInput = recordElement.querySelector(".record-list li input");
+      const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
 
-      const patientNameElement = recordElement.querySelector('.record-section-title span');
-      const symptomsElement = recordElement.querySelector('.record-list li');
-      const medicationsElement = recordElement.querySelectorAll('.record-list li')[1];
+      const patientNameElement = recordElement.querySelector(".record-section-title span");
+      const symptomsElement = recordElement.querySelector(".record-list li");
+      const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
 
-       //To check if any of the field is empty
-       if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {       
+      //To check if any of the field is empty
+      if (isInvalidInput(patientNameInput.value) === true || isInvalidInput(symptomsInput.value) == true || isInvalidInput(medicationsInput.value) == true) {
         messageModal("Invalid input: Please enter a non-empty value.");
-      }
-      else{
+      } else {
         // Update the content with the new values
         patientNameElement.innerHTML = patientNameInput.value;
         symptomsElement.innerHTML = symptomsInput.value;
         medicationsElement.innerHTML = medicationsInput.value;
-        editButton.style.display = "block"; 
-        saveButton.style.display = 'none'; 
+        editButton.style.display = "block";
+        saveButton.style.display = "none";
       }
     }
 
-    const editButton = recordElement.querySelector('#edit');
-    const saveButton = document.createElement('button');
-    saveButton.classList.add('btn', 'text-light', 'btn-large', 'btn-block','savebtn');
+    const editButton = recordElement.querySelector("#edit");
+    const saveButton = document.createElement("button");
+    saveButton.classList.add("btn", "text-light", "btn-large", "btn-block", "savebtn");
     saveButton.style.display = "none";
 
-    editButton.addEventListener('click', function () {
-      editButton.style.display = "none"; 
+    editButton.addEventListener("click", function () {
+      editButton.style.display = "none";
       saveButton.style.display = "block";
       enterEditMode(recordElement);
     });
 
-      saveButton.textContent = 'Save';
-      recordElement.appendChild(saveButton);
-      saveButton.addEventListener('click', function () {
-        saveChanges(recordElement);
-        
-      });
-    
-
-   
-
+    saveButton.textContent = "Save";
+    recordElement.appendChild(saveButton);
+    saveButton.addEventListener("click", function () {
+      saveChanges(recordElement);
+    });
 
     // Clear the form fields after adding the record
     document.getElementById("PatientNameInput").value = "";
