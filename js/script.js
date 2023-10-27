@@ -21,9 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="record-header">
           <h5 class="record-date">${record.currentDate}</h5>
       <div class="icons">
-        <button class="edit">✏️</button>
-        <button class="delete"><img src="./trash-alt-icon-462x512-xs5e5fm6.png" alt="dustbin"></button>
-        <button class="save" style="display:none;">Save</button>
+        <button class="edit btn btn-secondary">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button class="save btn btn-secondary" style="display:none;">
+          <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+        <button class="delete btn btn-danger">
+          <i class="fa-solid fa-trash"></i>
+        </button>
         </div>
       </div>
       <div class="record-body">
@@ -41,32 +47,77 @@ document.addEventListener("DOMContentLoaded", function () {
           <h4 class="record-status">Status: Poor</h4>
       </div>
   `;
-  recordElement.querySelector(".edit").addEventListener("click", enterEditMode);
-  recordElement.querySelector(".delete").addEventListener("click", deleteRecord);
-  recordElement.querySelector(".save").addEventListener("click", saveEditedRecord);
-
+    recordElement
+      .querySelector(".edit")
+      .addEventListener("click", enterEditMode);
+    recordElement
+      .querySelector(".delete")
+      .addEventListener("click", deleteRecord);
+    recordElement
+      .querySelector(".save")
+      .addEventListener("click", saveEditedRecord);
     // Append the new record to the record container
     document.querySelector(".record-container").appendChild(recordElement);
   };
-  const deleteRecord = (event) => {
-    /** 1.Delete from the screen */
-    var recordElement = event.target.closest(".record");
-    // Get the unique record identifier associated with the button
-    const recordId = recordElement.getAttribute("data-record-id");
-    // Find the record element with the matching identifier and remove it
-    const recordToDelete = document.querySelector(
-      `[data-record-id="${recordId}"]`
-    );
-    if (recordToDelete) {
-      document.querySelector(".record-container").removeChild(recordToDelete);
-    }
 
-    /** 2.Delete from the localstorage */
-    recordObj = recordObj.filter(
-      (item) =>
-        item.id !== parseInt(recordElement.getAttribute("data-record-id"))
-    );
-    localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
+  // Function to open confirm modal
+  function openConfirmModal() {
+    const confirmModal = document.getElementById("confirmationModal");
+    return new Promise((resolve, reject) => {
+      document
+        .getElementById("confirmDelete")
+        .addEventListener("click", function () {
+          confirmModal.style.display = "none";
+          resolve(true);
+        });
+      document
+        .getElementById("cancelDelete")
+        .addEventListener("click", function () {
+          confirmModal.style.display = "none";
+          resolve(false);
+        });
+    });
+  }
+
+  // modal for any message
+  function messageModal(message) {
+    const modal = document.getElementById("messageModal");
+    modal.style.display = "flex";
+
+    const messageElement = document.getElementById("messageModalText");
+    messageElement.textContent = message;
+
+    document
+      .getElementById("acknowledgmentBtn")
+      .addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+  }
+
+  const deleteRecord = async (event) => {
+    const confirmModal = document.getElementById("confirmationModal");
+    confirmModal.style.display = "flex";
+    const result = await openConfirmModal();
+    if (result) {
+      /** 1.Delete from the screen */
+      var recordElement = event.target.closest(".record");
+      // Get the unique record identifier associated with the button
+      const recordId = recordElement.getAttribute("data-record-id");
+      // Find the record element with the matching identifier and remove it
+      const recordToDelete = document.querySelector(
+        `[data-record-id="${recordId}"]`
+      );
+      if (recordToDelete) {
+        document.querySelector(".record-container").removeChild(recordToDelete);
+      }
+
+      /** 2.Delete from the localstorage */
+      recordObj = recordObj.filter(
+        (item) =>
+          item.id !== parseInt(recordElement.getAttribute("data-record-id"))
+      );
+      localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
+    }
   };
   const saveNewRecord = (record) => {
     // Save new record to browser's local storage
@@ -75,49 +126,60 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const saveChanges = (recordElement) => {
-    const patientNameInput = recordElement.querySelector(".record-section-title span input");
+    const patientNameInput = recordElement.querySelector(
+      ".record-section-title span input"
+    );
     const symptomsInput = recordElement.querySelector(".record-list li input");
-    const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
+    const medicationsInput = recordElement.querySelectorAll(
+      ".record-list li input"
+    )[1];
 
-    const patientNameElement = recordElement.querySelector(".record-section-title span");
+    const patientNameElement = recordElement.querySelector(
+      ".record-section-title span"
+    );
     const symptomsElement = recordElement.querySelector(".record-list li");
-    const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
+    const medicationsElement =
+      recordElement.querySelectorAll(".record-list li")[1];
 
     //To check if any of the field is empty
     if (
       isInvalidInput(patientNameInput.value) === true ||
-      isInvalidInput(symptomsInput.value) == true ||
-      isInvalidInput(medicationsInput.value) == true
+      isInvalidInput(symptomsInput.value) == true
     ) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     } else {
       // Update the content with the new values
       patientNameElement.innerHTML = patientNameInput.value;
       symptomsElement.innerHTML = symptomsInput.value;
       medicationsElement.innerHTML = medicationsInput.value;
-  
     }
   };
+
   const saveEditedRecord = (event) => {
     var recordElement = event.target.closest(".record");
     var recordId = recordElement.getAttribute("data-record-id");
 
     /** 1.Edit from the screen */
-    const patientNameInput = recordElement.querySelector(".record-section-title span input");
+    const patientNameInput = recordElement.querySelector(
+      ".record-section-title span input"
+    );
     const symptomsInput = recordElement.querySelector(".record-list li input");
-    const medicationsInput = recordElement.querySelectorAll(".record-list li input")[1];
-    const patientNameElement = recordElement.querySelector(".record-section-title span");
+    const medicationsInput = recordElement.querySelectorAll(
+      ".record-list li input"
+    )[1];
+    const patientNameElement = recordElement.querySelector(
+      ".record-section-title span"
+    );
     const symptomsElement = recordElement.querySelector(".record-list li");
-    const medicationsElement = recordElement.querySelectorAll(".record-list li")[1];
-
+    const medicationsElement =
+      recordElement.querySelectorAll(".record-list li")[1];
 
     //To check if any of the field is empty
     if (
       isInvalidInput(patientNameInput.value) === true ||
-      isInvalidInput(symptomsInput.value) == true ||
-      isInvalidInput(medicationsInput.value) == true
+      isInvalidInput(symptomsInput.value) == true
     ) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     } else {
       // Update the content with the new values
       patientNameElement.innerHTML = patientNameInput.value;
@@ -125,6 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
       medicationsElement.innerHTML = medicationsInput.value;
 
       var thisRecord = event.target.closest("div");
+
       thisRecord.querySelector(".save").style.display = "none";
       thisRecord.querySelector(".edit").style.display = "block";
     }
@@ -138,41 +201,45 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     localStorage.setItem(RECORDOBJ_KEY, JSON.stringify(recordObj));
   };
+
   const enterEditMode = (event) => {
-    event.target.style.display = "none";
+    // event.target.style.display = "none";
+
     var thisRecord = event.target.closest("div");
     thisRecord.querySelector(".save").style.display = "block";
-
+    thisRecord.querySelector(".edit").style.display = "none";
     var recordElement = event.target.closest(".record");
-    
-        // Get the elements that need to be edited
-        const patientNameElement = recordElement.querySelector(
-          ".record-section-title span"
-        );
-        const symptomsElement = recordElement.querySelector(".record-list li");
-        const medicationsElement =
-          recordElement.querySelectorAll(".record-list li")[1];
-    
-        // Create input fields and populate them with the current values
-        const patientNameInput = document.createElement("input");
-        patientNameInput.value = patientNameElement.textContent;
-    
-        const symptomsInput = document.createElement("input");
-        symptomsInput.value = symptomsElement.textContent;
-    
-        const medicationsInput = document.createElement("input");
-        medicationsInput.value = medicationsElement.textContent;
-    
-        // Replace the content with input fields
-        patientNameElement.innerHTML = "";
-        patientNameElement.appendChild(patientNameInput);
-    
-        symptomsElement.innerHTML = "";
-        symptomsElement.appendChild(symptomsInput);
-    
-        medicationsElement.innerHTML = "";
-        medicationsElement.appendChild(medicationsInput);
 
+    // Get the elements that need to be edited
+    const patientNameElement = recordElement.querySelector(
+      ".record-section-title span"
+    );
+    const symptomsElement = recordElement.querySelector(".record-list li");
+    const medicationsElement =
+      recordElement.querySelectorAll(".record-list li")[1];
+
+    // Create input fields and populate them with the current values
+    const patientNameInput = document.createElement("input");
+    patientNameInput.classList.add("form-control");
+    patientNameInput.value = patientNameElement.textContent;
+
+    const symptomsInput = document.createElement("input");
+    symptomsInput.classList.add("form-control");
+    symptomsInput.value = symptomsElement.textContent;
+
+    const medicationsInput = document.createElement("input");
+    medicationsInput.classList.add("form-control");
+    medicationsInput.value = medicationsElement.textContent;
+
+    // Replace the content with input fields
+    patientNameElement.innerHTML = "";
+    patientNameElement.appendChild(patientNameInput);
+
+    symptomsElement.innerHTML = "";
+    symptomsElement.appendChild(symptomsInput);
+
+    medicationsElement.innerHTML = "";
+    medicationsElement.appendChild(medicationsInput);
   };
 
   const onRecordSubmit = (event) => {
@@ -183,14 +250,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var symptoms = document.getElementById("SymptomsInput");
     var medications = document.getElementById("MedicationsInput");
     var currentDate = new Date().toLocaleDateString();
-    console.log(patientName.value);
+
     //To check if any of the field is empty
     if (
       isInvalidInput(patientName.value) === true ||
-      isInvalidInput(symptoms.value) == true ||
-      isInvalidInput(medications.value) == true
+      isInvalidInput(symptoms.value) == true
     ) {
-      alert("Invalid input: Please enter a non-empty value.");
+      messageModal("Invalid input: Please enter a non-empty value.");
     } else {
       const newRecord = {
         patientName: patientName.value,
@@ -233,6 +299,6 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteButton.addEventListener("click", deleteRecord);
   });
   saveButtons.forEach((saveButton) => {
-    saveButton.addEventListener("click",saveEditedRecord);
+    saveButton.addEventListener("click", saveEditedRecord);
   });
 });
