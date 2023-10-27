@@ -670,6 +670,11 @@ a button{
   max-height: 80%;
   overflow: auto;
 }
+@media screen and (max-width: 700px) {
+  .modal > div {
+    max-width: 90vw;
+  }
+}
 
 .modalButtons{
   display:flex;
