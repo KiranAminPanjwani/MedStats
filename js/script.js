@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
   const deleteRecord = async(event) => {
+    console.log('a');
     const confirmModal = document.getElementById('confirmationModal');
     confirmModal.style.display= 'flex';
     const result = await openConfirmModal();
