@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="Shortcut Icon" type="image/ico" href="images/favicon.svg">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>About</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/style.css"> <!-- Your custom CSS file -->
+  <link rel="stylesheet" href="./css/about.css">
+
+</head>
+
+<body>
+
+  <!-- NavBar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand mb-1 nav-heading" href="/index.html" style="font-size: 28px;">
+      <!-- <img src="./medicalLogo.png" /> -->
+      <i class="fa fa-stethoscope" style="font-size:30px;color:white"></i>
+      <img src="./images/logo-color.jpeg" alt="" width="130px">
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="contactUs.html">Contact Us</a></li>
+      <li><a href="login.html" style="color: white; text-decoration: none;">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- main -->
+
+
+  <div class="main">
+    <div class="main-image">
+      <img src="./images/Medical prescription-amico.svg" alt="">
+    </div>
+    <div class="main-text">
+      <p>
+        This platform serves as a Personal Health Journal, empowering users to maintain a comprehensive digital
+        record of their health-related data. With features designed for tracking health progress, documenting
+        symptoms, and recording medications, MedStats offers a seamless and efficient method for individuals to
+        proactively monitor and manage their well-being.
+      </p>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="card" style="width: 18rem;">
+      <img src="./images/favicon.svg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="./images/favicon.svg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="./images/favicon.svg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <p class="text-center1">
+      Made by Kiran Amin Panjwani <br>
+      This Project is participating in Hacktoberfest. Copyright © <span id="current-year"></span>.</br></br>
+    </p>
+  </footer>
+
+  <!-- dynamic data code -->
+  <script src="./js/script.js"></script>
+
+  <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById('current-year').textContent = currentYear;
+  </script>
+
+</body>
+
+</html>

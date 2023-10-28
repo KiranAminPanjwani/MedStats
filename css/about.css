@@ -1,0 +1,18 @@
+.main-image{
+    width: 70vw;
+    height: 75vh;
+    padding-left: 10px;
+}
+.main{
+    display: flex;
+    margin-top: 150px;
+}
+.main-text{
+    text-align: center;
+    margin-top: 83px;
+}
+.feature {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
