@@ -661,3 +661,88 @@ a button{
   font-size: 16px;
   border-radius: 5px;
 }
+
+footer {
+  background-color: #be3e7a;
+  color: #fff;
+  padding: 20px;
+}
+
+.stores {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Style the number in the stores section */
+.store .number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Style the footer logo */
+.footer-logo img {
+  width: 150px;
+  height: auto;
+}
+
+/* Style the footer text */
+.footer-txt {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Style the payment partners section */
+.payment-partners {
+  margin-top: 20px;
+}
+
+.payment-partners h2 {
+  font-size: 18px;
+  color: white;
+}
+
+/* Style the partner logos */
+.partner-logos img {
+  width: 70px;
+  height: 40px;
+  margin: 10px;
+}
+
+/* Add hover effect for partner logos */
+.partner-logos img:hover {
+  opacity: 0.8;
+}
+
+/* Style the social media links */
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/* Style the social media links */
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  margin: 15px;
+}
+
+/* Style the social media icons */
+.social-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.app-link {
+  text-decoration: none;
+  color: #fff;
+  margin: 10px 15px;
+}
+
+.app-link img {
+  width: 150px;
+  height: 50px;
+}
