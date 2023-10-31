@@ -43,9 +43,9 @@
       <div class="main">
         <div class="content">
           <h2>Contact Us</h2>
-          <form action="#" method="post">
+          <form name="contactForm" onsubmit="return validateForm()">
             <input type="text" name="name" placeholder="Enter your Name">
-            <input type="email" name="name" placeholder="Enter your Email">
+            <input type="email" name="email" placeholder="Enter your Email">
             <textarea name="message" placeholder="Your Message"></textarea>
             <button type="submit" class="btn">Send<i class="butn"></i></button>
           </form>
@@ -57,6 +57,34 @@
     </div>
   </div>
 
+  <!-- client side form validation -->
+  <script>
+    function validateForm() {
+        var name = document.forms["contactForm"]["name"].value;
+        var email = document.forms["contactForm"]["email"].value;
+        var message = document.forms["contactForm"]["message"].value;
+
+        if (name == "") {
+            alert("Please enter Name");
+            return false;
+        }
+        if (email == "") {
+            alert("Please enter Email");
+            return false;
+        }
+        // Basic email validation
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailRegex)) {
+            alert("Invalid email address");
+            return false;
+        }
+        if (message == "") {
+            alert("Message must not be empty");
+            return false;
+        }
+        return true;
+    }
+</script>
   <footer>
     <p class="text-center1">
       Made by Kiran Amin Panjwani <br>
