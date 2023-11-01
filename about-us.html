@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Cabin:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/authentication.css" />
+    <link rel="stylesheet" href="./css/about-us.css" />
   </head>
 
   <body>
@@ -32,43 +32,52 @@
               <a class="nav-link active" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about-us.html">About</a>
+              <a class="nav-link active" aria-current="page" href="about-us.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact-us.html">Contact Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+              <a class="nav-link" href="login.html">Login</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <main class="main">
       <div class="container">
-        <h2 class="pageTitle">Login to your account</h2>
-        <div class="form-container">
-          <form id="MedicalForm">
-            <div class="form-group row">
-              <label for="username" class="col-sm-2 col-form-label">Username</label>
-              <div class="col-sm-10 position-relative">
-                <input type="text" class="form-control" id="username" placeholder="Username" />
-              </div>
+        <h2 class="pageTitle">About Us</h2>
+        <div class="about">
+          <div class="main-image">
+            <img src="./images/Medical prescription-amico.svg" alt="" />
+          </div>
+          <div class="main-text">
+            <p>This platform serves as a Personal Health Journal, empowering users to maintain a comprehensive digital record of their health-related data. With features designed for tracking health progress, documenting symptoms, and recording medications, MedStats offers a seamless and efficient method for individuals to proactively monitor and manage their well-being.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="card" style="width: 18rem;">
+            <img src="./images/favicon.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
             </div>
-
-            <div class="form-group row">
-              <label for="Password" class="col-sm-2 col-form-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="password" placeholder="Password" />
-              </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="./images/favicon.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
             </div>
-
-            <a href="index.html">
-              <button type="button" class="btn text-light btn-large btn-block" style="background-color: #b40c57" id="add-record-btn">Done</button>
-            </a>
-
-            <p>New here? <a href="sign-up.html">sign up</a> and create your account</p>
-          </form>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="./images/favicon.svg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>

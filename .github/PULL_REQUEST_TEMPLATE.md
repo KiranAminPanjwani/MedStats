@@ -2,7 +2,7 @@
 
 ## 🛠️ Fixes Issue: # (issue)
 
-<!-- Mention the issue number you have fixed. 
+<!-- Mention the issue number you have fixed.
 Example: 🛠️ Fixes Issue #31 -->
 
 <!-- Remove this section if not applicable -->
@@ -16,8 +16,7 @@ Please delete options that are not relevant.
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-
-## 👨‍💻 Changes proposed: 
+## 👨‍💻 Changes proposed:
 
 Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
 
@@ -40,7 +39,6 @@ Please include a summary of the changes and the related issue. Please also inclu
 - [ ] My changes have not introduced any new warnings.
 - [ ] I have conducted a self-review of my code.
 - [ ] I am a participant of Hacktoberfest 2023.
-
 
 ## 📷 Screenshots
 

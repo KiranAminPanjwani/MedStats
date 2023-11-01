@@ -1,0 +1,36 @@
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-image{
+    width: 100%;
+    height: auto;
+    max-width: 370px;
+}
+
+.main-text{
+    text-align: justify;
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+.feature {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+    .about {
+        flex-direction: row;
+    }
+
+    .main-text {
+        font-size: 1.5rem;
+    }
+}
